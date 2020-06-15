@@ -1,0 +1,140 @@
+{% extends 'me/base.html' %}
+{% load static %}
+{% block content %}
+
+    <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0' id='intro-header'>
+        <div class="container ml-auto">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 d-flex flex-column justify-content-center align-items-center">
+                    <h1 class='display-4 text-center'>Nitish Devadiga</h1>
+                    <div class="push-spaces"></div>
+                    <p class='lead text-center'>Web Developer | Programmer | Graphic Designer</p>
+                </div>
+                <div class="col d-flex justify-content-center justify-content-md-end align-items-center">
+                    <img src="{% static "me/assets/dp.jpg" %}" class='rounded-circle' id='dp'/>
+                </div>
+            </div>   
+        </div>
+    </header>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
+        <a class='navbar-brand' href={% url "me-home" %}>
+            <img src="{% static "me/assets/logo.png" %}" id="nav-logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#about">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Certifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Me -->
+    <section class="container-fluid pb-5" id="about">
+        <div class="container">
+            <div class="section-spacer"></div>
+            <h2 class="display-4 mb-3 section-title">About Me</h2>
+            <div class="container text-white">
+                <p class="text-justify">
+                    Hey, welcome to my personal website! I am Nitish Devadiga. Scroll, read on and I will show you who I am and what I can do. 
+                </p>
+                <p class="text-justify">
+                    Since a very young age, I had been obsessed with computers and new technologies. I used to play a lot of video games as a kid, and still do. I am fascinated by how we can experience entire simulations and worlds virtually on a screen. I knew at that age itself, that I would learn the art of programming video games and share my creativity in a form which is more expressive than cinema.
+                </p>
+                <p class="text-justify">
+                    When I grew older, I started learning by myself how computers work and how code was written. I started learning C# from youtube and made some simple Console projects.
+                </p>
+                <p class="text-justify">
+                    In my 10+2 I took Computer Science as my vocational subject where I gained more in-depth knowledge of C++ and a firm grip on OOP. I also learned hardware and assembly language and the inner workings of an OS. I started learning Android Development on the side and even made a small game in the Unity Game Engine.
+                </p>
+                <p class="text-justify">
+                    I made up my mind and knew that I wanted to pursue my career in computers and tech. So I opted for the BCA course offered by Amity University Mumbai. I have also learned a lot in the 4 semesters of this course and made many personal projects. I even developed many soft skills in communication, management, and leadership.
+                </p>
+                <p class="text-justify">
+                    Now I am focusing on Machine Learning (specifically Neural Networks). I hope to be a contributor to the ever evolving World of ML algorithms one day.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="container-fluid pb-5 bg-alt" id="education">
+        <div class="container">
+            <div class="section-spacer"></div>
+            <h2 class="display-4 mb-2 section-title">Education</h2>
+            {% for e in education %}
+                <div class="row text-white justify-content-center mb-4 p-2">
+                    <div class="col-4 d-flex flex-row justify-content-center align-items-center px-2">
+                        <img src="{{ e.logo }}" alt="{{ e.institution }} Logo" class="rounded-lg" style="width:120px; height:120px;"/>
+                    </div>
+                    <div class="col-8 px-2">
+                        <div class="container d-flex flex-column">
+                            <h3>{{ e.institution }}</h3>
+                            <h5>{{ e.course }}</h5>
+                            <p>{{ e.year }}</p>
+                            {% if e.board %}
+                                <p>Board: {{ e.board }}</p>
+                            {% endif %}
+                            <p>Marks: {{ e.score }} {{ e.scoreFormat }}</p>
+                            {% if e.marksheet %}
+                                <a href="{{ e.marksheet }}" target="_blank">View Marksheet</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% if not forloop.last %}
+                    <hr style="background-color:#fff">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="container-fluid pb-5" id="projects">
+        <div class="container">
+            <div class="section-spacer"></div>
+            <h2 class="display-4 mb-3 section-title">Projects</h2>
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-12 col-md-6 mb-3">
+                        <div class="card text-white bg-dark projects">
+                            <div class="container d-flex flex-row justify-content-center project-picDesc">
+                                <img src="{{ project.picDesc }}" style="max-width:100%; max-height:300px;"/>
+                            </div>
+                            <div class="card-body p-0 project-details">
+                                <h3 class="card-title align-items-center p-2" id="project-title">{{ project.title }}</h3>
+                                <p class="card-text text-justify px-3">{{ project.desc }}</p>
+                                <p class="card-text text-justify px-3"><strong>Technology Used:</strong> {{ project.techUsed }}</p>
+                                <a href="{{ project.link }}" class="btn btn-block py-3" role='button' target="_blank">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+ 

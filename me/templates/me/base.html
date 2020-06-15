@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% if title %}
+        <title>Nitish Devadiga | {{ title }}</title>
+    {% else %}
+        <title>Nitish Devadiga</title>
+    {% endif %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon Code -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'me/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'me/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'me/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'me/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'me/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'me/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'me/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'me/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'me/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'me/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'me/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'me/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'me/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'me/favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{% static 'me/favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#000000">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'me/main.css' %}">
+  </head>
+  <body>
+
+    <div class="container-fluid p-0">
+      {% block content %} {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2">
+            <ul class="list-unstyled list-inline social text-center">
+              <li class="list-inline-item"><a href="https://www.facebook.com/nitish.devadiga.50/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/blackviper619" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/nitish_de_fall/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/in/nitish-devadiga/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.behance.net/nitish_devadiga" target="_blank"><i class="fa fa-behance"></i></a></li>
+              <li class="list-inline-item"><a href="https://github.com/Cypherball/" target="_blank"><i class="fa fa-github"></i></a></li>
+              <li class="list-inline-item"><a href="mailto:nitishdevadiga@hotmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+          </div>
+          <hr>
+        </div>	
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p>Elegantly Designed by Nitish Devadiga</p>
+            <p class="h6">© All right Reversed.<a class="ml-2" href="https://www.nitishdevadiga.com" target="_blank">nitishdevadiga.com</a></p>
+          </div>
+          <hr>
+        </div>	
+      </div>
+    </footer>
+    <!-- ./Footer -->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Smooth Scroll Effect -->
+    <script src="{% static 'me/js/smoothscroll.js' %}"></script>
+  </body>
+</html>

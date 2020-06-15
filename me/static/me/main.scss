@@ -1,0 +1,142 @@
+$body-background: #101010;
+$body-background-alt: #1f1f1f;
+$nav-background: #0a0a0a;
+
+@font-face{
+    font-family: GoodTimes;
+    src: url('fonts/good_times.ttf')
+}
+
+body {
+    background-color: $body-background;
+}
+
+#intro-header{
+    background-image: url('assets/saber.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    #dp{
+        width: 200px;
+        height: 200px;
+        border: 3px solid darkviolet;
+    }
+
+    h1{
+        font-family: GoodTimes, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: mediumorchid;
+    }
+    p{
+        color: plum;
+    }
+}
+
+.push-spaces{
+    height: 60px;
+}
+
+.nav-custom{
+    background-color: $nav-background;
+}
+
+#nav-logo{
+    width: 75px;
+    height: auto;
+}
+
+.section-spacer{
+    padding-top: 75px;
+}
+
+.section-title{
+    color: magenta;
+}
+
+.bg-alt{
+    background-color: $body-background-alt;
+}
+
+.project-picDesc{
+    background-color: #0f0f0f;
+}
+
+.project-details{
+    .btn{
+        background-color: purple;
+        color: white;
+    }
+    .btn:hover{
+        background-color: magenta;
+    }
+}
+
+#project-title{
+    background-color: #0f0f0f;
+    text-align: center;
+}
+
+@media (max-width:768px){
+    #intro-header{
+        background-image: url('assets/saber_r.jpg');
+        padding: 25% 0%;
+        [class*="col-"] {
+            margin-bottom: 200px;
+        }
+    }
+
+    .push-spaces{
+        height: 30px;
+    }
+    #navbarNav{
+        padding: 5px;
+        text-align: center;
+    }
+}
+
+#footer {
+    background: darkorchid !important;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a{
+	color:#ffffff;
+}
+#footer ul.social li a:hover{
+	color:#eeeeee;
+}
+#footer ul.quick-links li{
+	padding: 3px 0;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:5px;
+	font-weight:700;
+}
+#footer ul.quick-links li a i{
+	margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+
+
