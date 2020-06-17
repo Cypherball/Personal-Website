@@ -7,11 +7,17 @@ $nav-background: #0a0a0a;
     src: url('fonts/good_times.ttf')
 }
 
+html, body{
+    scroll-behavior: smooth;
+}
+
 body {
+    overflow-x: hidden;
     background-color: $body-background;
 }
 
 #intro-header{
+    background-color: #000000;
     background-image: url('assets/saber.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -92,6 +98,9 @@ body {
         text-align: center;
     }
 }
+
+
+//----- Footer -----
 
 #footer {
     background: darkorchid !important;

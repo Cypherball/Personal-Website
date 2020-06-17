@@ -6,12 +6,12 @@
         <div class="container ml-auto">
             <div class="row">
                 <div class="col-sm-12 col-md-8 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class='display-4 text-center'>Nitish Devadiga</h1>
+                    <h1 class='display-4 text-center anim-header-h1'>Nitish Devadiga</h1>
                     <div class="push-spaces"></div>
-                    <p class='lead text-center'>Web Developer | Programmer | Graphic Designer</p>
+                    <p class='lead text-center anim-header-p'>Web Developer | Programmer | Graphic Designer</p>
                 </div>
                 <div class="col d-flex justify-content-center justify-content-md-end align-items-center">
-                    <img src="{% static "me/assets/dp.jpg" %}" class='rounded-circle' id='dp'/>
+                    <img src="{% static "me/assets/dp.jpg" %}" class='rounded-circle anim-header-dp' id='dp'/>
                 </div>
             </div>   
         </div>
@@ -27,13 +27,13 @@
         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#about">About<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#education">Education</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Skills</a>
+                    <a class="nav-link" href="#skills">Skills</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Certifications</a>
@@ -53,28 +53,20 @@
 
     <!-- About Me -->
     <section class="container-fluid pb-5" id="about">
-        <div class="container">
+        <div class="container" >
             <div class="section-spacer"></div>
-            <h2 class="display-4 mb-3 section-title">About Me</h2>
+            <h2 class="display-4 mb-3 section-title anim-about-title">
+                About Me
+            </h2>
             <div class="container text-white">
-                <p class="text-justify">
-                    Hey, welcome to my personal website! I am Nitish Devadiga. Scroll, read on and I will show you who I am and what I can do. 
+                <p class="text-justify anim-about-text" >
+                    {{ about.intro }}
                 </p>
-                <p class="text-justify">
-                    Since a very young age, I had been obsessed with computers and new technologies. I used to play a lot of video games as a kid, and still do. I am fascinated by how we can experience entire simulations and worlds virtually on a screen. I knew at that age itself, that I would learn the art of programming video games and share my creativity in a form which is more expressive than cinema.
-                </p>
-                <p class="text-justify">
-                    When I grew older, I started learning by myself how computers work and how code was written. I started learning C# from youtube and made some simple Console projects.
-                </p>
-                <p class="text-justify">
-                    In my 10+2 I took Computer Science as my vocational subject where I gained more in-depth knowledge of C++ and a firm grip on OOP. I also learned hardware and assembly language and the inner workings of an OS. I started learning Android Development on the side and even made a small game in the Unity Game Engine.
-                </p>
-                <p class="text-justify">
-                    I made up my mind and knew that I wanted to pursue my career in computers and tech. So I opted for the BCA course offered by Amity University Mumbai. I have also learned a lot in the 4 semesters of this course and made many personal projects. I even developed many soft skills in communication, management, and leadership.
-                </p>
-                <p class="text-justify">
-                    Now I am focusing on Machine Learning (specifically Neural Networks). I hope to be a contributor to the ever evolving World of ML algorithms one day.
-                </p>
+                {% for p in about.text_as_list %}
+                    <p class="text-justify anim-about-text">
+                        {{ p }}
+                    </p>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -83,23 +75,25 @@
     <section class="container-fluid pb-5 bg-alt" id="education">
         <div class="container">
             <div class="section-spacer"></div>
-            <h2 class="display-4 mb-2 section-title">Education</h2>
+            <h2 class="display-4 mb-2 section-title anim-education-title">
+                Education
+            </h2>
             {% for e in education %}
-                <div class="row text-white justify-content-center mb-4 p-2">
+                <div class="row text-white justify-content-center mb-4 p-2 anim-education-row">
                     <div class="col-4 d-flex flex-row justify-content-center align-items-center px-2">
-                        <img src="{{ e.logo }}" alt="{{ e.institution }} Logo" class="rounded-lg" style="width:120px; height:120px;"/>
+                        <img src="{{ e.logo }}" alt="{{ e.institution }} Logo" class="rounded-lg anim-education-logo" style="width:120px; height:120px;"/>
                     </div>
                     <div class="col-8 px-2">
                         <div class="container d-flex flex-column">
-                            <h3>{{ e.institution }}</h3>
-                            <h5>{{ e.course }}</h5>
-                            <p>{{ e.year }}</p>
+                            <h3 class="anim-education-details">{{ e.institution }}</h3>
+                            <h5 class="anim-education-details">{{ e.course }}</h5>
+                            <p class="anim-education-details">{{ e.year }}</p>
                             {% if e.board %}
-                                <p>Board: {{ e.board }}</p>
+                                <p class="anim-education-details">Board: {{ e.board }}</p>
                             {% endif %}
-                            <p>Marks: {{ e.score }} {{ e.scoreFormat }}</p>
+                            <p class="anim-education-details">Marks: {{ e.score }} {{ e.scoreFormat }}</p>
                             {% if e.marksheet %}
-                                <a href="{{ e.marksheet }}" target="_blank">View Marksheet</a>
+                                <a href="{{ e.marksheet }}" target="_blank" class="anim-education-details">View Marksheet</a>
                             {% endif %}
                         </div>
                     </div>
@@ -111,11 +105,35 @@
         </div>
     </section>
 
+    <!-- Skills -->
+    <section class="container-fluid pb-5 text-white" id="skills">
+        <div class="container">
+            <div class="section-spacer"></div>
+            <h2 class="display-4 mb-3 section-title">
+                Skills
+            </h2>
+            <div class="container">
+            {% for c in skills %}
+                <h4>{{ c.0.category }}</h4>
+                <div class="container text-white my-4">
+                    <ul class="list-group list-group-horizontal d-flex flex-wrap">
+                    {% for s in c %}
+                        <li class="list-group-item bg-primary rounded text-white text-center p-2 m-2">{{ s.skill }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+
     <!-- Projects -->
     <section class="container-fluid pb-5" id="projects">
         <div class="container">
             <div class="section-spacer"></div>
-            <h2 class="display-4 mb-3 section-title">Projects</h2>
+            <h2 class="display-4 mb-3 section-title">
+                Projects
+            </h2>
             <div class="row">
                 {% for project in projects %}
                     <div class="col-12 col-md-6 mb-3">

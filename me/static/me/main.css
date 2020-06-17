@@ -3,7 +3,12 @@
   src: url("fonts/good_times.ttf");
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
+  overflow-x: hidden;
   background-color: #101010;
 }
 
@@ -18,15 +23,23 @@ body {
   width: 200px;
   height: 200px;
   border: 3px solid darkviolet;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 
 #intro-header h1 {
   font-family: GoodTimes, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: mediumorchid;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 #intro-header p {
   color: plum;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .push-spaces {
