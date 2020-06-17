@@ -7,6 +7,8 @@ $nav-background: #0a0a0a;
     src: url('fonts/good_times.ttf')
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
 html, body{
     scroll-behavior: smooth;
 }
@@ -16,12 +18,14 @@ body {
     background-color: $body-background;
 }
 
+//Header
 #intro-header{
     background-color: #000000;
     background-image: url('assets/saber.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    min-height: 100vh;
     #dp{
         width: 200px;
         height: 200px;
@@ -37,10 +41,7 @@ body {
     }
 }
 
-.push-spaces{
-    height: 60px;
-}
-
+//Nav
 .nav-custom{
     background-color: $nav-background;
 }
@@ -48,6 +49,15 @@ body {
 #nav-logo{
     width: 75px;
     height: auto;
+}
+
+//Sections
+section{
+    min-height: 100vh;
+}
+
+.push-spaces{
+    height: 60px;
 }
 
 .section-spacer{
@@ -60,6 +70,42 @@ body {
 
 .bg-alt{
     background-color: $body-background-alt;
+}
+
+.svg-bg{
+    min-height: 100vh;
+}
+
+
+//About
+#about{
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    p{
+        font-family: 'Sriracha', cursive;
+    }
+    .svg-bg{
+        background-image: url("assets/about-bg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 2500px 2500px;
+    }
+}
+
+//Education
+#education{
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+
+//Skills
+#skills{
+    background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+
+//Projects
+#projects{
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 .project-picDesc{
@@ -81,7 +127,11 @@ body {
     text-align: center;
 }
 
+
+//Media Querries 
+
 @media (max-width:768px){
+    //Header
     #intro-header{
         background-image: url('assets/saber_r.jpg');
         padding: 25% 0%;
@@ -89,13 +139,20 @@ body {
             margin-bottom: 200px;
         }
     }
-
+    //Sections
     .push-spaces{
         height: 30px;
     }
+    //Nav
     #navbarNav{
         padding: 5px;
         text-align: center;
+    }
+    //About
+    #about{
+        .svg-bg{
+            background-size: 2000px 2000px;
+        }
     }
 }
 

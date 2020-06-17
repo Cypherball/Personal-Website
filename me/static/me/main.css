@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
 @font-face {
   font-family: GoodTimes;
   src: url("fonts/good_times.ttf");
@@ -13,37 +14,27 @@ body {
 }
 
 #intro-header {
+  background-color: #000000;
   background-image: url("assets/saber.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  min-height: 100vh;
 }
 
 #intro-header #dp {
   width: 200px;
   height: 200px;
   border: 3px solid darkviolet;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
 }
 
 #intro-header h1 {
   font-family: GoodTimes, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: mediumorchid;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
 }
 
 #intro-header p {
   color: plum;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-.push-spaces {
-  height: 60px;
 }
 
 .nav-custom {
@@ -53,6 +44,14 @@ body {
 #nav-logo {
   width: 75px;
   height: auto;
+}
+
+section {
+  min-height: 100vh;
+}
+
+.push-spaces {
+  height: 60px;
 }
 
 .section-spacer {
@@ -65,6 +64,39 @@ body {
 
 .bg-alt {
   background-color: #1f1f1f;
+}
+
+.svg-bg {
+  min-height: 100vh;
+}
+
+#about {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+#about p {
+  font-family: 'Sriracha', cursive;
+}
+
+#about .svg-bg {
+  background-image: url("assets/about-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2500px 2500px;
+}
+
+#education {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#skills {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#7028e4), to(#e5b2ca));
+  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+}
+
+#projects {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
 }
 
 .project-picDesc {
@@ -99,6 +131,9 @@ body {
   #navbarNav {
     padding: 5px;
     text-align: center;
+  }
+  #about .svg-bg {
+    background-size: 2000px 2000px;
   }
 }
 

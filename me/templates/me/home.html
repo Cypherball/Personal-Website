@@ -2,11 +2,11 @@
 {% load static %}
 {% block content %}
 
-    <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0' id='intro-header'>
+    <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0 d-flex justify-content-center align-items-center' id='intro-header'>
         <div class="container ml-auto">
             <div class="row">
                 <div class="col-sm-12 col-md-8 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class='display-4 text-center anim-header-h1'>Nitish Devadiga</h1>
+                    <h1 class='display-4 text-center anim-header-h1 pb-5'>Nitish Devadiga</h1>
                     <div class="push-spaces"></div>
                     <p class='lead text-center anim-header-p'>Web Developer | Programmer | Graphic Designer</p>
                 </div>
@@ -52,9 +52,10 @@
     </nav>
 
     <!-- About Me -->
-    <section class="container-fluid pb-5" id="about">
-        <div class="container" >
-            <div class="section-spacer"></div>
+    <section class="container-fluid p-0 " id="about">
+    <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
+        <div class="container py-3" >
+            <!--<div class="section-spacer"></div>-->
             <h2 class="display-4 mb-3 section-title anim-about-title">
                 About Me
             </h2>
@@ -68,6 +69,7 @@
                     </p>
                 {% endfor %}
             </div>
+        </div>
         </div>
     </section>
 
