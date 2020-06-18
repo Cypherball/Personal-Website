@@ -65,6 +65,30 @@ class Projects(models.Model):
         return self.title
 
 
+class Certifications(models.Model):
+    title = models.CharField(max_length=255)
+    issued_by = models.CharField(max_length=255, null=True, blank=True)
+    issued_month = models.CharField(max_length=20, null=True, blank=True)
+    issued_year = models.CharField(max_length=4, null=True, blank=True)
+    validity = models.CharField(max_length=10, null=True, blank=True)
+    verification_id = models.CharField(max_length=255, null=True, blank=True)
+    verification_link = models.URLField(null=True, blank=True)
+    preview = models.URLField()
+
+    def __str__(self):
+        return self.title
+
+
+class Contact(models.Model):
+    email = models.EmailField()
+    email_alt = models.EmailField(null=True, blank=True)
+    phone = models.CharField(max_length=15)
+    phone_alt = models.CharField(max_length=15, null=True, blank=True)
+
+    def __str__(self):
+        return self.email
+
+
 
 
 

@@ -1,160 +1,232 @@
-{% extends 'me/base.html' %}
-{% load static %}
-{% block content %}
+    {% extends 'me/base.html' %}
+    {% load static %}
+    {% block content %}
 
-    <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0 d-flex justify-content-center align-items-center' id='intro-header'>
-        <div class="container ml-auto">
-            <div class="row">
-                <div class="col-sm-12 col-md-8 d-flex flex-column justify-content-center align-items-center">
-                    <h1 class='display-4 text-center anim-header-h1 pb-5'>Nitish Devadiga</h1>
-                    <div class="push-spaces"></div>
-                    <p class='lead text-center anim-header-p'>Web Developer | Programmer | Graphic Designer</p>
-                </div>
-                <div class="col d-flex justify-content-center justify-content-md-end align-items-center">
-                    <img src="{% static "me/assets/dp.jpg" %}" class='rounded-circle anim-header-dp' id='dp'/>
-                </div>
-            </div>   
-        </div>
-    </header>
-
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
-        <a class='navbar-brand' href={% url "me-home" %}>
-            <img src="{% static "me/assets/logo.png" %}" id="nav-logo"/>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Certifications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- About Me -->
-    <section class="container-fluid p-0 " id="about">
-    <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
-        <div class="container py-3" >
-            <!--<div class="section-spacer"></div>-->
-            <h2 class="display-4 mb-3 section-title anim-about-title">
-                About Me
-            </h2>
-            <div class="container text-white">
-                <p class="text-justify anim-about-text" >
-                    {{ about.intro }}
-                </p>
-                {% for p in about.text_as_list %}
-                    <p class="text-justify anim-about-text">
-                        {{ p }}
-                    </p>
-                {% endfor %}
+        <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0 d-flex justify-content-center align-items-center' id='intro-header'>
+            <div class="container-fluid m-0 px-5">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8 d-flex flex-column justify-content-center align-items-center">
+                        <h1 class='display-4 text-center anim-header-h1 pb-5 hvr-bob'>Nitish Devadiga</h1>
+                        <div class="push-spaces"></div>
+                        <p class='lead text-center anim-header-p hvr-bob'>Web Developer | Programmer | Graphic Designer</p>
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center hvr-grow">
+                        <img src="{% static "me/assets/dp.jpg" %}" class='rounded-circle anim-header-dp ' id='dp'/>
+                    </div>
+                </div>   
             </div>
-        </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Education -->
-    <section class="container-fluid pb-5 bg-alt" id="education">
-        <div class="container">
-            <div class="section-spacer"></div>
-            <h2 class="display-4 mb-2 section-title anim-education-title">
-                Education
-            </h2>
-            {% for e in education %}
-                <div class="row text-white justify-content-center mb-4 p-2 anim-education-row">
-                    <div class="col-4 d-flex flex-row justify-content-center align-items-center px-2">
-                        <img src="{{ e.logo }}" alt="{{ e.institution }} Logo" class="rounded-lg anim-education-logo" style="width:120px; height:120px;"/>
-                    </div>
-                    <div class="col-8 px-2">
-                        <div class="container d-flex flex-column">
-                            <h3 class="anim-education-details">{{ e.institution }}</h3>
-                            <h5 class="anim-education-details">{{ e.course }}</h5>
-                            <p class="anim-education-details">{{ e.year }}</p>
-                            {% if e.board %}
-                                <p class="anim-education-details">Board: {{ e.board }}</p>
-                            {% endif %}
-                            <p class="anim-education-details">Marks: {{ e.score }} {{ e.scoreFormat }}</p>
-                            {% if e.marksheet %}
-                                <a href="{{ e.marksheet }}" target="_blank" class="anim-education-details">View Marksheet</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% if not forloop.last %}
-                    <hr style="background-color:#fff">
-                {% endif %}
-            {% endfor %}
-        </div>
-    </section>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
+            <a class='navbar-brand' href={% url "me-home" %}>
+                <img src="{% static "me/assets/logo.png" %}" id="nav-logo"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%">
+                    <li class="nav-item active">
+                        <a class="nav-link hvr-grow" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-grow" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-grow" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-grow" href="#certifications">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-grow" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-grow" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-grow" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <!-- Skills -->
-    <section class="container-fluid pb-5 text-white" id="skills">
-        <div class="container">
-            <div class="section-spacer"></div>
-            <h2 class="display-4 mb-3 section-title">
-                Skills
-            </h2>
-            <div class="container">
-            {% for c in skills %}
-                <h4>{{ c.0.category }}</h4>
-                <div class="container text-white my-4">
-                    <ul class="list-group list-group-horizontal d-flex flex-wrap">
-                    {% for s in c %}
-                        <li class="list-group-item bg-primary rounded text-white text-center p-2 m-2">{{ s.skill }}</li>
+        <!-- About Me -->
+        <section class="container-fluid p-0 " id="about">
+        <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
+            <div class="container py-3" >
+                <div class="section-spacer"></div>
+                <h2 class="display-4 mb-3 section-title anim-about-title">
+                    About Me
+                </h2>
+                <div class="container text-white">
+                    <p class="text-justify anim-about-text" >
+                        {{ about.intro }}
+                    </p>
+                    {% for p in about.text_as_list %}
+                        <p class="text-justify anim-about-text">
+                            {{ p }}
+                        </p>
                     {% endfor %}
+                </div>
+                <div class="container d-flex justify-content-center mt-5 about-contact">
+                    <a class="text-decoration-none hvr-grow" href="#contact"><h3>Contact Me</h3></a>
+                </div>
+                <hr>
+                <div class="container my-4 socials d-flex flex-column justify-content-center">
+                    <ul class="list-unstyled list-inline social text-center text-white d-flex flex-row justify-content-between">
+                        <li class="list-inline-item hvr-float"><a href="https://www.facebook.com/nitish.devadiga.50/" target="_blank"><i class="fa fa-facebook "></i></a></li>
+                        <li class="list-inline-item hvr-float"><a href="https://twitter.com/blackviper619" target="_blank" class="text-decoration-none"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item hvr-float"><a href="https://www.instagram.com/nitish_de_fall/" class="text-decoration-none" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item hvr-float"><a href="https://www.linkedin.com/in/nitish-devadiga/" class="text-decoration-none" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="list-inline-item hvr-float"><a href="https://www.behance.net/nitish_devadiga" class="text-decoration-none" target="_blank"><i class="fa fa-behance"></i></a></li>
+                        <li class="list-inline-item hvr-float"><a href="https://github.com/Cypherball/" target="_blank" class="text-decoration-none"><i class="fa fa-github"></i></a></li>
+                        <li class="list-inline-item hvr-float"><a href="mailto:nitishdevadiga@hotmail.com" target="_blank" class="text-decoration-none"><i class="fa fa-envelope"></i></a></li>
                     </ul>
                 </div>
-            {% endfor %}
             </div>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <!-- Projects -->
-    <section class="container-fluid pb-5" id="projects">
-        <div class="container">
-            <div class="section-spacer"></div>
-            <h2 class="display-4 mb-3 section-title">
-                Projects
-            </h2>
-            <div class="row">
-                {% for project in projects %}
-                    <div class="col-12 col-md-6 mb-3">
-                        <div class="card text-white bg-dark projects">
-                            <div class="container d-flex flex-row justify-content-center project-picDesc">
-                                <img src="{{ project.picDesc }}" style="max-width:100%; max-height:300px;"/>
-                            </div>
-                            <div class="card-body p-0 project-details">
-                                <h3 class="card-title align-items-center p-2" id="project-title">{{ project.title }}</h3>
-                                <p class="card-text text-justify px-3">{{ project.desc }}</p>
-                                <p class="card-text text-justify px-3"><strong>Technology Used:</strong> {{ project.techUsed }}</p>
-                                <a href="{{ project.link }}" class="btn btn-block py-3" role='button' target="_blank">View Project</a>
+        <!-- Education -->
+        <section class="container-fluid pb-5 bg-alt" id="education">
+            <div class="container">
+                <div class="section-spacer"></div>
+                <h2 class="display-4 mb-2 section-title anim-education-title">
+                    Education
+                </h2>
+                {% for e in education %}
+                    <div class="row text-white justify-content-center mb-4 p-2 anim-education-row">
+                        <div class="col-4 d-flex flex-row justify-content-center align-items-center education-logo px-2 hvr-grow">
+                            <img src="{{ e.logo }}" alt="{{ e.institution }} Logo" class="rounded-lg anim-education-logo"/>
+                        </div>
+                        <div class="col-8 px-2">
+                            <div class="container d-flex flex-column">
+                                <h3 class="anim-education-details">{{ e.institution }}</h3>
+                                <h5 class="anim-education-details">{{ e.course }}</h5>
+                                <p class="anim-education-details">{{ e.year }}</p>
+                                {% if e.board %}
+                                    <p class="anim-education-details">Board: {{ e.board }}</p>
+                                {% endif %}
+                                <p class="anim-education-details">Marks: {{ e.score }} {{ e.scoreFormat }}</p>
+                                {% if e.marksheet %}
+                                    <a href="{{ e.marksheet }}" target="_blank" class="anim-education-details">View Marksheet</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
+                    {% if not forloop.last %}
+                        <hr>
+                    {% endif %}
                 {% endfor %}
             </div>
-        </div>
-    </section>
+        </section>
 
-{% endblock content %}
- 
+        <!-- Skills -->
+        <section class="container-fluid pb-5 text-white" id="skills">
+            <div class="container">
+                <div class="section-spacer"></div>
+                <h2 class="display-4 mb-3 section-title">
+                    Skills
+                </h2>
+                <div class="container">
+                {% for c in skills %}
+                    <h4>{{ c.0.category }}</h4>
+                    <div class="container text-white my-4">
+                        <ul class="list-inline d-flex flex-wrap">
+                        {% for s in c %}
+                            <li class="list-inline-item bg-primary rounded text-white text-center p-2 m-2 hvr-float-shadow">{{ s.skill }}</li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="container-fluid pb-5" id="certifications">
+            <div class="container">
+                <div class="section-spacer"></div>
+                <h2 class="display-4 mb-3 section-title">
+                    Certifications
+                </h2>
+                <div class="row">
+                    {% for certification in certifications %}
+                        <div class="col-12 col-lg-6 mb-3 hvr-float">
+                            <div class="card text-white bg-dark projects">
+                                <div class="container d-flex flex-row justify-content-center certificate-preview rounded-top"> 
+                                    <div class="certificate-hovereffect">
+                                        <img class="img-responsive" src="{{ certification.preview }}" alt="Certificate Preview">
+                                        <div class="certificate-preview-overlay d-flex flex-column justify-content-between align-content-center">
+                                            <h5>{{ certification.issued_by }}</h5>
+                                            <a class="info" role='button' href="{{ certification.verification_link }}" target="_blank">Verify</a>
+                                            <div class="certificate-dates d-flex flex-row justify-content-between align-content-center p-2">
+                                                <p>{{ certification.issued_month }} {{ certification.issued_year }}</p>
+                                                {% if certification.validity %}
+                                                    <p>Validity: {{ certification.validity}}</p>
+                                                {% else %}
+                                                    <p>Validity: &#8734;</p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ certification.verification_link }}" target="_blank" class="text-decoration-none link-no-style">
+                                <div class="card-body certificate-details p-3 d-flex justify-content-center align-items-center rounded-bottom">
+                                    <h4 class="card-title text-center m-0" id="certificate-title">{{ certification.title }}</h4>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="container-fluid pb-5" id="projects">
+            <div class="container">
+                <div class="section-spacer"></div>
+                <h2 class="display-4 mb-3 section-title">
+                    Projects
+                </h2>
+                <div class="row">
+                    {% for project in projects %}
+                        <div class="col-12 col-md-6 mb-3">
+                            <div class="card text-white bg-dark projects hvr-float">
+                                <div class="container d-flex flex-row justify-content-center project-picDesc">
+                                    <img src="{{ project.picDesc }}" style="max-width:100%; max-height:300px;"/>
+                                </div>
+                                <div class="card-body p-0 project-details">
+                                    <h3 class="card-title align-items-center p-2" id="project-title">{{ project.title }}</h3>
+                                    <p class="card-text text-justify px-3">{{ project.desc }}</p>
+                                    <p class="card-text text-justify px-3"><strong>Technology Used:</strong> {{ project.techUsed }}</p>
+                                    <a href="{{ project.link }}" class="btn btn-block py-3" role='button' target="_blank">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="container-fluid p-0 " id="contact">
+        <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
+            <div class="container py-3" >
+                <!--<div class="section-spacer"></div>-->
+                <h2 class="display-4 mb-3 section-title anim-about-title">
+                    Contact Me
+                </h2>
+                <div class="container text-white">
+                   <form>
+
+                   </form>
+                </div>
+            </div>
+            </div>
+        </section>
+
+    {% endblock content %}
+    
