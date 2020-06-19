@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY_PROJECT_CB')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
-DEBUG = True
+DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
+#DEBUG = True
 
-ALLOWED_HOSTS = ['project-cb.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['project-cb.herokuapp.com']
 
 
 # Application definition
