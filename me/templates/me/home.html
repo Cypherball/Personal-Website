@@ -17,6 +17,7 @@
             </div>
         </header>
 
+        <!-- Navigation -->
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
             <a class='navbar-brand' href={% url "me-home" %}>
                 <img src="{% static "me/assets/logo.webp" %}" id="nav-logo"/>
@@ -24,31 +25,19 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            {% verbatim %}
             <div class="collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%">
-                    <li class="nav-item active">
-                        <a class="nav-link hvr-grow" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-grow" href="#education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-grow" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-grow" href="#certifications">Certifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-grow" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-grow" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hvr-grow" href="#contact">Contact</a>
-                    </li>
+                <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%" id="navbar-items">
+                    <template v-for="(value, name) in navlist">
+                        <li class="nav-item" v-bind:id="idprefix + name">
+                            <a class="nav-link hvr-grow" :href="value" v-on:click="navItemClick">
+                                {{ name }}
+                            </a>
+                        </li>
+                    </template>
                 </ul>
             </div>
+            {% endverbatim %}
         </nav>
 
         <!-- About Me -->
