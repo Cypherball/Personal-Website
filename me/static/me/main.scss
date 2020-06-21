@@ -300,6 +300,52 @@ section{
     text-align: center;
 }
 
+/*.btn-grad {
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%) !important;
+}
+.btn-grad:hover, .btn-grad:focus, .btn-grad:active, .btn-grad.active, .open>.dropdown-toggle.btn-grad {  
+    background-position: right center !important;
+}*/
+.btn {
+    flex: 1 1 auto;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    //box-shadow: 0 0 20px #eee;
+    //border-radius: 10px;
+}
+.btn:hover {
+    color: white;
+    background-position: right center; 
+}
+.btn-contact {
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%)
+}
+
+//Contact Me
+#contact{
+    .contact-form-container{
+        background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%); 
+        form{
+            textarea{
+                //min-height: 200px;
+                resize: none;
+            }
+            
+        }
+    }
+    #contact-info{
+        a{
+            width: 100%;
+            font-size: 1.2em;
+            background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+        }
+    }
+}
+
 
 //Media Querries 
 @media (max-width:768px){
