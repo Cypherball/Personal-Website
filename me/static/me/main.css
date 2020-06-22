@@ -82,6 +82,17 @@ section {
   min-height: 100vh;
 }
 
+section, footer {
+  border-style: groove;
+  border-width: 6px 10px;
+  border-color: #101010;
+  border-radius: 15px;
+}
+
+footer {
+  border-width: 6px 10px 10px 10px;
+}
+
 .push-spaces {
   height: 60px;
 }
@@ -157,7 +168,7 @@ section {
 #education .svg-bg {
   background-image: url("assets/education-bg.png");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: "center";
   background-size: 2000px 2000px;
 }
 
@@ -171,8 +182,14 @@ section {
 }
 
 #skills {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#7028e4), to(#e5b2ca));
-  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+  background-image: linear-gradient(109.8deg, #3e0574 -5.2%, #290e97 -5.2%, #d84494 103.3%);
+}
+
+#skills .svg-bg {
+  background-image: url("assets/skills-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 4500px 4500px;
 }
 
 #certifications {
@@ -183,7 +200,7 @@ section {
   background-image: url("assets/certification-bg.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 2500px 2500px;
+  background-size: 3000px 3000px;
 }
 
 #certifications #certification-title {
@@ -315,23 +332,30 @@ section {
 }
 
 #projects {
-  background-image: linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);
+  background-image: linear-gradient(112.2deg, #002846 -4.8%, #ff7373 82.7%, #ffaf7b 97.2%);
 }
 
-.project-picDesc {
-  background-color: #0f0f0f;
+#projects .svg-bg {
+  background-image: url("assets/projects-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2000px 2000px;
 }
 
-.project-details .btn {
-  background-color: purple;
+#projects .project-picDesc {
+  background-color: #002846;
+}
+
+#projects .project-details .btn {
+  background-color: #ff7373;
   color: white;
 }
 
-.project-details .btn:hover {
-  background-color: magenta;
+#projects .project-details .btn:hover {
+  background-color: #ffaf7b;
 }
 
-#project-title {
+#projects #project-title {
   background-color: #0f0f0f;
   text-align: center;
 }
@@ -361,12 +385,23 @@ section {
 }
 
 .btn-contact {
-  background-image: -webkit-gradient(linear, left top, right top, from(#1FA2FF), color-stop(51%, #12D8FA), to(#1FA2FF));
-  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#DA22FF), color-stop(51%, #9733EE), to(#DA22FF));
+  background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
+}
+
+#contact {
+  background-image: linear-gradient(179.4deg, #0c1445 -16.9%, #471e54 119.9%);
+}
+
+#contact .svg-bg {
+  background-image: url("assets/contact-bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2500px 2500px;
 }
 
 #contact .contact-form-container {
-  background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+  background-image: linear-gradient(279deg, #792d81 3.6%, #241f62 90.4%);
 }
 
 #contact .contact-form-container form textarea {
@@ -376,7 +411,7 @@ section {
 #contact #contact-info a {
   width: 100%;
   font-size: 1.2em;
-  background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
+  background-image: linear-gradient(279deg, #792d81 3.6%, #241f62 90.4%);
 }
 
 @media (max-width: 768px) {
@@ -403,7 +438,7 @@ section {
 }
 
 #footer {
-  background: darkorchid !important;
+  background-image: linear-gradient(109.6deg, #540d6e 11.2%, #ee4266 100.2%);
 }
 
 #footer a {

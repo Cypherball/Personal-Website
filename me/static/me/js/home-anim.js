@@ -8,6 +8,8 @@ $(document).ready(function () {
         .from('.anim-header-p', { opacity: 0, y: 100 }, "-=2")
         .from('.anim-header-dp', { opacity: 0, duration: 2, ease: Power2.easeOut, y: -100, x: 100, }, "-=1.5");
     
+    $scrub_val = 2;
+    
     //Media Size Variable Adjustments for Animations-------------------------------------------
     about_start = "center bottom";
     bg_start = "top bottom";
@@ -24,7 +26,7 @@ $(document).ready(function () {
         scrollTrigger: {
             trigger: "#about",
             start: bg_start,
-            scrub: 1,
+            scrub: $scrub_val,
             ease: 'none',
             toggleActions: "restart complete reverse pause"
         }, backgroundPosition: "center 90%", ease: Linear.easeNone, duration: 1
@@ -42,10 +44,10 @@ $(document).ready(function () {
         scrollTrigger: {
             trigger: "#education",
             start: bg_start,
-            scrub: 1,
+            scrub: $scrub_val,
             ease: 'none',
             toggleActions: "restart complete reverse pause"
-        }, backgroundSize: "4000px 4000px", ease: Linear.easeNone, duration: 1
+        }, backgroundPosition: "center 90%", ease: Linear.easeNone, duration: 1
     });
     var education_anim = gsap.timeline({
         scrollTrigger: {
@@ -60,7 +62,7 @@ $(document).ready(function () {
         scrollTrigger: {
             trigger: "#certifications",
             start: bg_start,
-            scrub: 1,
+            scrub: $scrub_val,
             ease: 'none',
             toggleActions: "restart complete reverse pause"
         }, backgroundPosition: "center 90%", ease: Linear.easeNone, duration: 1
@@ -73,5 +75,39 @@ $(document).ready(function () {
     certification_anim.from('.anim-certification-title', { opacity: 0, x: -200, duration: 0.5 }).from('.anim-certification-row', { opacity: 0, y: 200, duration: 0.5 , stagger: 0.5});
 
 
+    //Skills Section Animations-------------------------------------------
+    gsap.to("#skills .svg-bg", {
+        scrollTrigger: {
+            trigger: "#skills",
+            start: bg_start,
+            scrub: $scrub_val,
+            ease: 'none',
+            toggleActions: "restart complete reverse pause"
+        }, backgroundSize: "2000px 2000px", ease: Linear.easeNone, duration: 1
+    });
+
+
+    //Projects Section Animations-------------------------------------------
+    gsap.to("#projects .svg-bg", {
+        scrollTrigger: {
+            trigger: "#projects",
+            start: bg_start,
+            scrub: $scrub_val,
+            ease: 'none',
+            toggleActions: "restart complete reverse pause"
+        }, backgroundSize: "4000px 4000px", ease: Linear.easeNone, duration: 1
+    });
+
+
+    //Contact Section Animations-------------------------------------------
+    gsap.to("#contact .svg-bg", {
+        scrollTrigger: {
+            trigger: "#contact",
+            start: bg_start,
+            scrub: $scrub_val,
+            ease: 'none',
+            toggleActions: "restart complete reverse pause"
+        }, backgroundPosition: "center 90%", ease: Linear.easeNone, duration: 1
+    });
 });
 
