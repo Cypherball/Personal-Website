@@ -124,7 +124,7 @@ footer {
 }
 
 #about .svg-bg {
-  background-image: url("assets/about-bg.png");
+  background-image: url("assets/Sections/about-bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2500px 2500px;
@@ -166,7 +166,7 @@ footer {
 }
 
 #education .svg-bg {
-  background-image: url("assets/education-bg.png");
+  background-image: url("assets/Sections/education-bg.webp");
   background-repeat: no-repeat;
   background-position: "center";
   background-size: 2000px 2000px;
@@ -186,7 +186,7 @@ footer {
 }
 
 #skills .svg-bg {
-  background-image: url("assets/skills-bg.png");
+  background-image: url("assets/Sections/skills-bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 4500px 4500px;
@@ -197,7 +197,7 @@ footer {
 }
 
 #certifications .svg-bg {
-  background-image: url("assets/certification-bg.png");
+  background-image: url("assets/Sections/certification-bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 3000px 3000px;
@@ -336,7 +336,7 @@ footer {
 }
 
 #projects .svg-bg {
-  background-image: url("assets/projects-bg.png");
+  background-image: url("assets/Sections/projects-bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2000px 2000px;
@@ -394,7 +394,7 @@ footer {
 }
 
 #contact .svg-bg {
-  background-image: url("assets/contact-bg.png");
+  background-image: url("assets/Sections/contact-bg.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 2500px 2500px;
