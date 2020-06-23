@@ -83,7 +83,7 @@ section {
 }
 
 section, footer {
-  border-style: groove;
+  border-style: solid;
   border-width: 6px 10px;
   border-color: #101010;
   border-radius: 15px;
@@ -115,8 +115,9 @@ footer {
 }
 
 #about {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  background-color: #30cfd0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#30cfd0), to(#330867));
+  background-image: linear-gradient(to bottom, #30cfd0 0%, #330867 100%);
 }
 
 #about p {
@@ -131,7 +132,7 @@ footer {
 }
 
 #about hr {
-  background-color: #003d4d;
+  background-color: #fff;
 }
 
 #about .about-contact a {
@@ -161,6 +162,7 @@ footer {
 }
 
 #education {
+  background-color: #b224ef;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#b224ef), to(#7579ff));
   background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
 }
@@ -331,6 +333,17 @@ footer {
           transition-delay: .2s;
 }
 
+#portfolio {
+  background-color: #101010;
+}
+
+#portfolio .svg-bg {
+  background-image: url("assets/Sections/portfolio-bg.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2000px 2000px;
+}
+
 #projects {
   background-image: linear-gradient(112.2deg, #002846 -4.8%, #ff7373 82.7%, #ffaf7b 97.2%);
 }
@@ -360,12 +373,6 @@ footer {
   text-align: center;
 }
 
-/*.btn-grad {
-    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%) !important;
-}
-.btn-grad:hover, .btn-grad:focus, .btn-grad:active, .btn-grad.active, .open>.dropdown-toggle.btn-grad {  
-    background-position: right center !important;
-}*/
 .btn {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -390,7 +397,7 @@ footer {
 }
 
 #contact {
-  background-image: linear-gradient(179.4deg, #0c1445 -16.9%, #471e54 119.9%);
+  background-image: linear-gradient(279deg, #792d81 3.6%, #241f62 90.4%);
 }
 
 #contact .svg-bg {

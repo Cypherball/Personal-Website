@@ -88,7 +88,7 @@ section{
 }
 
 section, footer{
-    border-style: groove;
+    border-style: solid;
     border-width: 6px 10px;
     border-color: $body-background;
     border-radius: 15px;
@@ -121,7 +121,8 @@ footer{
 
 //About
 #about{
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-color: #30cfd0;
+    background-image: linear-gradient(to bottom,#30cfd0 0%, #330867 100%);
     p{
         font-family: 'Sriracha', cursive;
     }
@@ -132,7 +133,7 @@ footer{
         background-size: 2500px 2500px;
     }
     hr{
-        background-color: #003d4d;
+        background-color: #fff;
     }
     .about-contact{
         a{
@@ -160,6 +161,7 @@ footer{
 
 //Education
 #education{
+    background-color: #b224ef;
     background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
     .svg-bg{
         background-image: url("assets/Sections/education-bg.webp");
@@ -303,6 +305,17 @@ footer{
 }
 
 
+//Portfolio
+#portfolio{
+    background-color: $body-background;
+    .svg-bg{
+        background-image: url("assets/Sections/portfolio-bg.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 2000px 2000px;
+    }
+}
+
 //Projects
 #projects{
     background-image: linear-gradient( 112.2deg,  rgba(0,40,70,1) -4.8%, rgba(255,115,115,1) 82.7%, rgba(255,175,123,1) 97.2% );
@@ -333,12 +346,6 @@ footer{
     
 }
 
-/*.btn-grad {
-    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%) !important;
-}
-.btn-grad:hover, .btn-grad:focus, .btn-grad:active, .btn-grad.active, .open>.dropdown-toggle.btn-grad {  
-    background-position: right center !important;
-}*/
 .btn {
     flex: 1 1 auto;
     text-align: center;
@@ -362,7 +369,7 @@ footer{
 $contact_form_bg: linear-gradient( 279deg,  rgba(121,45,129,1) 3.6%, rgba(36,31,98,1) 90.4% );
 
 #contact{
-    background-image: linear-gradient( 179.4deg,  rgba(12,20,69,1) -16.9%, rgba(71,30,84,1) 119.9% );
+    background-image: linear-gradient( 279deg,  rgba(121,45,129,1) 3.6%, rgba(36,31,98,1) 90.4% );
     .svg-bg{
         background-image: url("assets/Sections/contact-bg.webp");
         background-repeat: no-repeat;
@@ -374,10 +381,8 @@ $contact_form_bg: linear-gradient( 279deg,  rgba(121,45,129,1) 3.6%, rgba(36,31,
         background-image:$contact_form_bg;
         form{
             textarea{
-                //min-height: 200px;
                 resize: none;
             }
-            
         }
     }
     #contact-info{

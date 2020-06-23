@@ -2,6 +2,7 @@ var nav = new Vue({
     el: "#navbar-items",
     data: {
         idprefix: "nav-",
+        //navlinks: ["#about","#education","#skills","#certifications","#portfolio","#projects","#contact"],
         navlist: {
             About: "#about",
             Education: "#education",
@@ -23,9 +24,18 @@ var nav = new Vue({
             $(".navbar-collapse").collapse("hide");
         }
     }
-})
+});
+
+//gsap.registerPlugin(ScrollToPlugin);
 
 $(document).ready(function () {
+    /*$(".nav-link").get().forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            event.preventDefault();
+            gsap.to(window, { duration: 1.5, scrollTo: { y: nav.navlinks[index] }} );
+        });
+    });*/
+    
     //Register Intersection Observer to update active link
     //based on which section is most visible on viewport
     if (window.matchMedia('(min-width: 950px)').matches) {
