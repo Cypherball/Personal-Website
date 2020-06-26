@@ -35,6 +35,11 @@ body {
   background-color: #101010;
 }
 
+#content-area {
+  visibility: hidden;
+  display: none;
+}
+
 .link-no-style {
   text-decoration: none !important;
   color: #fff;

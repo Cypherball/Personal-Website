@@ -45,7 +45,7 @@
   <body>
 
     <!-- Content Area -->
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0" id="content-area">
       {% block content %} {% endblock %}
     </div>
 
@@ -97,17 +97,12 @@
     <script src="{% static 'me/gsap/dist/gsap.min.js' %}"></script>
     <script src="{% static 'me/gsap/dist/ScrollTrigger.min.js' %}"></script>
     <!--<script src="{% static 'me/gsap/dist/ScrollToPlugin.min.js' %}"></script>-->
-
- 
-
     
     {% if title == 'Home' %}
       <!-- Animations -->
       <script src="{% static 'me/js/home-anim.js' %}"></script>
       <script src="{% static 'me/js/home.js' %}"></script>
     {% endif %}
-
-       
 
   </body>
 </html>

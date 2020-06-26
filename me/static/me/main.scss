@@ -40,6 +40,11 @@ body {
     background-color: $body-background;
 }
 
+#content-area{
+    visibility: hidden;
+    display: none;
+}
+
 .link-no-style{
     text-decoration: none !important;
     color: #fff;

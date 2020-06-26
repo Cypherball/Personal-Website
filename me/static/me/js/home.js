@@ -29,6 +29,12 @@ var nav = new Vue({
 //gsap.registerPlugin(ScrollToPlugin);
 
 $(document).ready(function () {
+    console.log($('#content-area').css('visibility'));
+    console.log($('#content-area').css('display'));
+    $('#content-area').css({ 'display': 'block', 'visibility': 'visible' });
+    initSmoothScroll();
+    startAnims();
+    
     /*$(".nav-link").get().forEach((btn, index) => {
         btn.addEventListener("click", () => {
             event.preventDefault();
@@ -40,8 +46,6 @@ $(document).ready(function () {
     //based on which section is most visible on viewport
     if (window.matchMedia('(min-width: 950px)').matches) {
         let observer = new IntersectionObserver(function (entries) {
-            //let maxratio = 0;
-            //let activeSection = "";
             entries.forEach(function (entry) {
                 if (entry.isIntersecting === true) {
                     //Only enable this feature for device width greater than 950px
@@ -51,12 +55,7 @@ $(document).ready(function () {
                         $(".nav-item").addClass("active");
                     }
                 }
-                /*if (entry.intersectionRatio > maxratio) {
-                    maxratio = entry.intersectionRatio;
-                    activeSection = entry.target.id;
-                }*/
             });
-            //nav.navUpdate(activeSection)
         }, { threshold: [0.5] });
 
         observer.observe(document.querySelector("#about"));

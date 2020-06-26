@@ -1,6 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
-$(document).ready(function () {
+function startAnims() {
     $scrub_val = 2;
 
     //Header Animations-------------------------------------------
@@ -154,6 +154,13 @@ $(document).ready(function () {
         }, "background-image":"linear-gradient( 250.8deg,  rgba(62,5,116,1) -5.2%, rgba(41,14,151,1) -5.2%, rgba(216,68,148,1) 103.3% )", ease:Sine.easeInOut
     });
 
+    var skills_anim = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#skills', start: "top center"
+        }, default: { duration: 0.2 }
+    });
+    skills_anim.from('.anim-skills-title', { opacity: 0, y: 200, duration: 0.5 }).from('.anim-skills-category', { opacity: 0, x: -200, duration: 0.5 , stagger: 0.1}).from('.anim-skills-skillList', { opacity: 0, x: 200, duration: 0.2 , stagger: 0.05});
+
 
     //Projects Section Animations-------------------------------------------
     gsap.to("#projects .svg-bg", {
@@ -175,6 +182,13 @@ $(document).ready(function () {
             toggleActions: "restart reset restart reset"
         }, backgroundImage: "linear-gradient( -50.2deg,  rgba(0,40,70,1) -4.8%, rgba(255,115,115,1) 82.7%, rgba(255,175,123,1) 97.2% )", ease: Sine.easeInOut
     });
+
+    var projects_anim = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#projects', start: "top center"
+        }, default: { duration: 0.2 }
+    });
+    projects_anim.from('.anim-projects-title', { opacity: 0, x: -200, duration: 0.5 }).from('.anim-projects-proj', { opacity: 0, y: 200, duration: 0.5, stagger: 0.5 });
 
 
     //Contact Section Animations-------------------------------------------
@@ -209,5 +223,12 @@ $(document).ready(function () {
             toggleActions: "restart reset restart reset"
         }, backgroundImage: "linear-gradient( 0deg,  rgba(121,45,129,1) 3.6%, rgba(36,31,98,1) 90.4% )", ease: Sine.easeInOut
     });
-});
+    var contact_anim = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#contact', start: "top center"
+        }, default: { duration: 0.2 }
+    });
+    contact_anim.from('.anim-contact-title', { opacity: 0, x: -200, duration: 0.5 }).from('.anim-contact-animate', { opacity: 0, y: 200, duration: 0.5, stagger: 0.5 });
+
+};
 

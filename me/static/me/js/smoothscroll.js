@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function initSmoothScroll(){
     // Add smooth scrolling to all links
   $("a").on('click', function (event) {
       if (typeof jQuery == 'undefined') {  
@@ -22,4 +22,4 @@ $(document).ready(function(){
       }
 
     });
-});
+};

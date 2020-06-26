@@ -118,16 +118,16 @@
         <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
             <div class="container" id="skills-content">
                 <div class="section-spacer"></div>
-                <h2 class="display-4 mb-3 section-title">
+                <h2 class="display-4 mb-3 section-title anim-skills-title">
                     Skills
                 </h2>
                 <div class="container">
                 {% for c in skills %}
-                    <h4>{{ c.0.category }}</h4>
+                    <h4 class="anim-skills-category">{{ c.0.category }}</h4>
                     <div class="container text-white my-4">
-                        <ul class="list-inline d-flex flex-wrap">
+                        <ul class="list-inline d-flex flex-wrap ">
                         {% for s in c %}
-                            <li class="list-inline-item bg-primary rounded text-white text-center p-2 m-2 hvr-float-shadow">{{ s.skill }}</li>
+                            <li class="list-inline-item bg-primary rounded text-white text-center p-2 m-2 hvr-float-shadow anim-skills-skillList">{{ s.skill }}</li>
                         {% endfor %}
                         </ul>
                     </div>
@@ -147,8 +147,8 @@
                 </h2>
                 <div class="row">
                     {% for certification in certifications %}
-                        <div class="col-12 col-lg-6 mb-3 hvr-float anim-certification-row">
-                            <div class="card text-white bg-dark projects">
+                        <div class="col-12 col-lg-6 mb-3 anim-certification-row">
+                            <div class="card text-white bg-dark projects hvr-float">
                                 <div class="container d-flex flex-row justify-content-center certificate-preview rounded-top"> 
                                     <div class="certificate-hovereffect">
                                         <img class="img-responsive" src="{{ certification.preview }}" alt="Certificate Preview">
@@ -185,7 +185,7 @@
         <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
             <div class="container py-3" >
                 <div class="section-spacer"></div>
-                <h2 class="display-4 mb-3 section-title anim-about-title">
+                <h2 class="display-4 mb-3 section-title anim-portfolio-title">
                     Graphic Design Portfolio
                 </h2>
                 <div class="container text-white">
@@ -204,12 +204,12 @@
         <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
             <div class="container">
                 <div class="section-spacer"></div>
-                <h2 class="display-4 mb-3 section-title">
+                <h2 class="display-4 mb-3 section-title anim-projects-title">
                     Projects
                 </h2>
                 <div class="row">
                     {% for project in projects %}
-                        <div class="col-12 col-md-6 mb-3">
+                        <div class="col-12 col-md-6 mb-3 anim-projects-proj">
                             <div class="card text-white bg-dark projects hvr-float">
                                 <div class="container d-flex flex-row justify-content-center project-picDesc">
                                     <img src="{{ project.picDesc }}" style="max-width:100%; max-height:300px;"/>
@@ -233,11 +233,12 @@
         <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
             <div class="container py-3" >
                 <div class="section-spacer"></div>
-                <h2 class="display-4 mb-3 section-title anim-about-title">
+                <h2 class="display-4 mb-3 section-title anim-contact-title">
                     Contact Me
                 </h2>
-                <div class="container text-white contact-form-container p-4 py-md-4 px-md-5 rounded">
-                    <form>
+                <div class="container text-white contact-form-container p-4 py-md-4 px-md-5 rounded anim-contact-animate">
+                    <form method="post" action="#">
+                    {% csrf_token %}
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputName" class="col-form-label-lg">Name</label>
@@ -259,7 +260,7 @@
                 </div>
                 <div class="container text-white my-5 px-0" id="contact-info">
                     <div class="row">
-                        <div class="col-12 col-md-6 py-3 py-md-0">
+                        <div class="col-12 col-md-6 py-3 py-md-0 anim-contact-animate">
                             <div class="container-fluid px-0">
                                 <h4 class="mb-3">
                                     <span class="fa fa-envelope pr-2"></span>
@@ -270,7 +271,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 py-3 pt-md-0 pb-md-4">
+                        <div class="col-12 col-md-6 py-3 pt-md-0 pb-md-4 anim-contact-animate">
                             <div class="container-fluid px-0">
                                 <h4 class="mb-3"> 
                                     <span class="fa fa-phone pr-2"></span>
