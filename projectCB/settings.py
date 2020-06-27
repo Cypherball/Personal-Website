@@ -30,6 +30,9 @@ DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
 
 ALLOWED_HOSTS = ['project-cb.herokuapp.com', 'localhost']
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = None
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
+
 
 # Application definition
 
