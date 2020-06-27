@@ -31,8 +31,11 @@ var nav = new Vue({
 $(document).ready(function () {
     console.log($('#content-area').css('visibility'));
     console.log($('#content-area').css('display'));
+    //Display website
     $('#content-area').css({ 'display': 'block', 'visibility': 'visible' });
+    //Initialize Smooth Scrolling to section links
     initSmoothScroll();
+    //Start page animations
     startAnims();
     
     /*$(".nav-link").get().forEach((btn, index) => {

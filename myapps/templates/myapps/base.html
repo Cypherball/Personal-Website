@@ -40,7 +40,11 @@
     <link rel="stylesheet" href="{% static 'me/hover/css/hover-min.css' %}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'me/main.css' %}">
+    {% if title == "Apps" %}
+        <link rel="stylesheet" href="{% static 'myapps/apps_list.css' %}">
+    {% elif title == 'OCR' %}
+        <link rel="stylesheet" href="{% static 'myapps/mlOCR.css' %}">
+    {% endif %}
   </head>
   <body>
 
@@ -70,7 +74,7 @@
           </div>	
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-              <p>Elegantly Designed by Nitish Devadiga</p>
+              <p>Designed by Nitish Devadiga</p>
               <p class="h6">©2020<a class="ml-2" href="https://www.nitish-web.dev" target="_blank" rel="noopener">nitish-web.dev</a> All rights Reserved.</p>
             </div>
             <hr>
@@ -97,13 +101,10 @@
     <!-- GSAP -->
     <script src="{% static 'me/gsap/dist/gsap.min.js' %}"></script>
     <script src="{% static 'me/gsap/dist/ScrollTrigger.min.js' %}"></script>
-    <!--<script src="{% static 'me/gsap/dist/ScrollToPlugin.min.js' %}"></script>-->
     
-    {% if title == 'Home' %}
-      <!-- Animations -->
-      <script src="{% static 'me/js/home-anim.js' %}"></script>
-      <script src="{% static 'me/js/home.js' %}"></script>
+    {% if title == "OCR" %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+        <script src="{% static 'myapps/js/sketch.js' %}"></script>
     {% endif %}
-
   </body>
 </html>

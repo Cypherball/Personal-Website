@@ -103,7 +103,7 @@ function startAnims() {
     education_anim.from('.anim-education-title', { opacity: 0, x: -200, duration: 0.5 }).from('.anim-education-logo', { opacity: 0, y: 200, duration: 0.5 }).from('.anim-education-details', { opacity: 0, x: -100, stagger: 0.1 },);
 
 
-     //Certification Section Animations-------------------------------------------
+    //Certification Section Animations-------------------------------------------
     gsap.to("#certifications .svg-bg", {
         scrollTrigger: {
             trigger: "#certifications",
@@ -159,7 +159,7 @@ function startAnims() {
             trigger: '#skills', start: "top center"
         }, default: { duration: 0.2 }
     });
-    skills_anim.from('.anim-skills-title', { opacity: 0, y: 200, duration: 0.5 }).from('.anim-skills-category', { opacity: 0, x: -200, duration: 0.5 , stagger: 0.1}).from('.anim-skills-skillList', { opacity: 0, x: 200, duration: 0.2 , stagger: 0.05});
+    skills_anim.from('.anim-skills-title', { opacity: 0, y: 200, duration: 0.5 }).from('.anim-skills-category', { opacity: 0, x: -200, duration: 0.5 , stagger: 0.5}).from('.anim-skills-skillList', { opacity: 0, x: 200, duration: 0.1 , stagger: 0.05},"-=2.5");
 
 
     //Projects Section Animations-------------------------------------------

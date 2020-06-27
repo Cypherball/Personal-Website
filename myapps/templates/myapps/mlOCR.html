@@ -1,0 +1,36 @@
+{% extends 'myapps/base.html' %}
+{% load static %}
+{% block content %}
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
+        <a class='navbar-brand' href={% url "me-home" %}>
+            <img src="{% static "me/assets/logo.webp" %}" id="nav-logo"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {% verbatim %}
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%" id="navbar-items">
+                <template v-for="(value, name) in navlist">
+                    <li class="nav-item" v-bind:id="idprefix + name">
+                        <a class="nav-link hvr-grow" :href="value" v-on:click="navItemClick">
+                            {{ name }}
+                        </a>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        {% endverbatim %}
+    </nav>
+    <div class="container my-5">
+        <h1>ML OCR (WIP!)</h1>
+    </div>
+    <div class="container d-flex justify-content-center mb-3" id="canvas-holder">
+        <!--<canvas id="canvas"></canvas>-->
+        
+    </div>
+    <div class="container controls mb-5 d-flex justify-content-center">
+        <button class="btn btn-primary mx-5" id="clear-button">Clear</btn>
+        <button class="btn btn-primary mx-5" id="detect-button">Detect</btn>
+    </div>
+{% endblock content %}

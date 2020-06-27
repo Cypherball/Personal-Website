@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['project-cb.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'myapps.apps.MyappsConfig',
     'me.apps.MeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
