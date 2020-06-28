@@ -64,13 +64,13 @@ function draw() {
     currentPath.push(point);
     noFill();
     stroke(255);
-    strokeWeight(20);
+    strokeWeight(10);
     for (let i = 0; i < drawing.length; i++){
       let path = drawing[i];
       beginShape();
-      for (let j = 0; j < path.length; j++){
-        vertex(path[j].x, path[j].y);
-      }
+        for (let j = 0; j < path.length; j++){
+          curveVertex(path[j].x, path[j].y);
+        }
       endShape();
     }
   }

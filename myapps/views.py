@@ -23,16 +23,6 @@ def mlOCR(request):
 
 def mlOCRAjax(request):
     if request.is_ajax() and request.POST:
-        '''
-        if request.method == 'POST':
-            response = "Henlo from the server!"
-            data = json.dumps(response)
-            return HttpResponse(data,content_type="application/json")
-        if request.method == 'GET':
-            response = "Henlo from the server!"
-            data = json.dumps(response)
-            return HttpResponse(data,content_type="application/json")
-        '''
         data = request.POST.get('imageData')
         prediction = predictRequest.process(data)
         #response = [answer]
