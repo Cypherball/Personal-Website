@@ -25,8 +25,11 @@ def process(data):
     return str(prediction)
 
 def predict(image):
-    model_filename=os.path.join('myapps', 'static', 'myapps', 'assets', 'ocr', "ocr.h5")
-    ocr_model = tf.keras.models.load_model(model_filename)
-    image = image.reshape(1,IMG_SIZE,IMG_SIZE,1)
-    predictions = ocr_model.predict(image)
-    return np.argmax(predictions[0])
+    try:
+        model_filename=os.path.join('myapps', 'static', 'myapps', 'assets', 'ocr', "ocr.h5")
+        ocr_model = tf.keras.models.load_model(model_filename)
+        image = image.reshape(1,IMG_SIZE,IMG_SIZE,1)
+        predictions = ocr_model.predict(image)
+        return np.argmax(predictions[0])
+    except:
+        return "Server Error :("

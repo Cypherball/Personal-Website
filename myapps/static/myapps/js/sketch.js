@@ -32,24 +32,31 @@ $.ajaxSetup({
 
 let canvasWidth = 400;
 let canvasHeight = 400;
+let _strokeW = 25;
 let drawing = [];
 let currentPath = [];
 let canDraw = false;
+let ajaxRequestAccept = false;
 
 function setup() {
+  ajaxRequestAccept = false;
+  $("#ocr-loading").hide();
+  $('#predict-button').attr("disabled", true);
   setCanvasDims();
-  var canvas = createCanvas(canvasWidth, canvasHeight);
+  let canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('canvas-holder');
   pixelDensity(1);
   canvas.mousePressed(startPath);
   canvas.touchStarted(startPath);
   canvas.mouseReleased(endPath);
   canvas.touchEnded(endPath);
-  var clearBtn = select("#clear-button");
-  var detectBtn = select("#detect-button");
-  clearBtn.mousePressed(clearCanvas);
-  detectBtn.mousePressed(predict);
-  background(0, 0, 0);
+  let clearBtn = select("#clear-button");
+  let predictBtn = select("#predict-button");
+  clearBtn.mousePressed(resetCanvas);
+  predictBtn.mousePressed(predict);
+  background(0, 0, 0); 
+  $("canvas").css({ "cursor": "crosshair" }); //cursor style to crosshair
+  //disable scroll and swipe inside container
   $("canvas").bind("wheel mousewheel", function (e) { e.preventDefault() });
   $("canvas")[0].addEventListener("touchstart",  function(event) {event.preventDefault()})
   $("canvas")[0].addEventListener("touchmove",   function(event) {event.preventDefault()})
@@ -59,7 +66,8 @@ function setup() {
 
 function startPath() {
   canDraw = true;
-  currentPath = [];
+  $('#predict-button').attr("disabled", false);
+  currentPath.splice(0, currentPath.length);
   drawing.push(currentPath);
 }
 
@@ -73,7 +81,7 @@ function draw() {
     currentPath.push(point);
     noFill();
     stroke(255);
-    strokeWeight(30);
+    strokeWeight(_strokeW);
     for (let i = 0; i < drawing.length; i++){
       let path = drawing[i];
       beginShape();
@@ -85,20 +93,26 @@ function draw() {
   }
 }
 
-function clearCanvas() {
-  drawing.length = 0;
-  currentPath.length = 0;
+
+function resetCanvas() {
+  setCanvasDims();
+  resizeCanvas(canvasWidth, canvasHeight);
+  drawing.splice(0, drawing.length);
+  currentPath.splice(0, currentPath.length);
   clear();
-  setup();
-  $("#server-response").removeClass("fas fa-spinner");
+  ajaxRequestAccept = false;
+  $('#predict-button').attr("disabled", true);
+  background(0, 0, 0);
+  $("#ocr-loading").hide();
   $("#server-response").html("");
 }
 
 
 
 function predict() {
-  $("#server-response").addClass("fa fa-spinner fa-pulse fa-fw");
-  //gsap.to("#server-response", {duration: 1.5, rotationZ: 360, repeat:-1, ease:Power1.easeInOut});
+  $('#predict-button').attr("disabled", true);
+  $("#server-response").html("");
+  $("#ocr-loading").show();
   let image = [];
   loadPixels();
   let d = pixelDensity();
@@ -106,9 +120,6 @@ function predict() {
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {
       index = 4 * (x + y * width);
-      /*if (pixels[index] == 255 && pixels[index + 1] == 255 && pixels[index + 2] == 255 && pixels[index + 3] == 255) {
-        continue;
-      }*/
       let r = pixels[index];
       let g = pixels[index+1] ;
       let b = pixels[index + 2];
@@ -120,13 +131,13 @@ function predict() {
       pixels[index+3] = 255;
     }
   }
-  updatePixels();
   imgData = {
     'image': image,
     'width': width,
     'height': height
   };
-  var imgDataJSON = JSON.stringify(imgData);
+  let imgDataJSON = JSON.stringify(imgData);
+  ajaxRequestAccept = true;
   $.ajax({
     type: 'POST',
     url: '/apps/mlOCRAjax/',
@@ -134,8 +145,15 @@ function predict() {
       "imageData": imgDataJSON  
     },
     success: function (data) {
-      $("#server-response").removeClass("fa fa-spinner fa-pulse fa-fw");
-      $("#server-response").html(data[0]);
+      if (ajaxRequestAccept) {
+        $("#ocr-loading").hide();
+        $("#server-response").html(data);
+        if (data.match(/\D/g)){
+          $('#predict-button').attr("disabled", false);
+        } else {
+          ajaxRequestAccept = false;
+        }
+      }
     }
   });
 }
@@ -152,8 +170,10 @@ function setCanvasDims() {
   if (window.matchMedia('(max-width: 500px)').matches) {
     canvasWidth = 300;
     canvasHeight = 300;
+    _strokeW = 15;
   } else {
     canvasWidth = 400;
     canvasHeight = 400;
+    _strokeW = 25;
   }
 }

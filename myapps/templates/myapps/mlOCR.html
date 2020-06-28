@@ -16,10 +16,15 @@
         </div>
         <div class="container d-flex justify-content-center mb-3" id="canvas-controls">
             <button class="btn btn-primary rounded-0" id="clear-button">Reset</btn>
-            <button class="btn btn-success rounded-0" id="detect-button">Detect</btn>
+            <button class="btn btn-success rounded-0" id="predict-button">Detect</btn>
         </div>
         <div class="container mt-2 mb-5" id="canvas-holder">
-            <p style="font-size:1.4rem" class="text-center"><strong>Prediction: <span id="server-response"></span></strong></p>
+            <p style="font-size:1.4rem" class="text-center">
+                <strong>Prediction: 
+                <span id="server-response"></span>
+                <span class="fa fa-spinner fa-pulse fa-fw" id="ocr-loading"></span>
+                </strong>
+            </p>
         </div>
     </div>
 {% endblock content %}

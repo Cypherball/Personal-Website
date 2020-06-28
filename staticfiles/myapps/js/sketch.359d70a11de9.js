@@ -32,7 +32,6 @@ $.ajaxSetup({
 
 let canvasWidth = 400;
 let canvasHeight = 400;
-let _strokeW = 25;
 let drawing = [];
 let currentPath = [];
 let canDraw = false;
@@ -40,7 +39,6 @@ let ajaxRequestAccept = false;
 
 function setup() {
   ajaxRequestAccept = false;
-  $("#ocr-loading").hide();
   $('#predict-button').attr("disabled", true);
   setCanvasDims();
   let canvas = createCanvas(canvasWidth, canvasHeight);
@@ -67,7 +65,7 @@ function setup() {
 function startPath() {
   canDraw = true;
   $('#predict-button').attr("disabled", false);
-  currentPath.splice(0, currentPath.length);
+  currentPath = [];
   drawing.push(currentPath);
 }
 
@@ -81,7 +79,7 @@ function draw() {
     currentPath.push(point);
     noFill();
     stroke(255);
-    strokeWeight(_strokeW);
+    strokeWeight(30);
     for (let i = 0; i < drawing.length; i++){
       let path = drawing[i];
       beginShape();
@@ -93,17 +91,12 @@ function draw() {
   }
 }
 
-
 function resetCanvas() {
-  setCanvasDims();
-  resizeCanvas(canvasWidth, canvasHeight);
-  drawing.splice(0, drawing.length);
-  currentPath.splice(0, currentPath.length);
+  drawing.length = 0;
+  currentPath.length = 0;
   clear();
-  ajaxRequestAccept = false;
-  $('#predict-button').attr("disabled", true);
-  background(0, 0, 0);
-  $("#ocr-loading").hide();
+  setup();
+  $("#server-response").removeClass("fas fa-spinner");
   $("#server-response").html("");
 }
 
@@ -112,7 +105,7 @@ function resetCanvas() {
 function predict() {
   $('#predict-button').attr("disabled", true);
   $("#server-response").html("");
-  $("#ocr-loading").show();
+  $("#server-response").addClass("fa fa-spinner fa-pulse fa-fw");
   let image = [];
   loadPixels();
   let d = pixelDensity();
@@ -146,13 +139,8 @@ function predict() {
     },
     success: function (data) {
       if (ajaxRequestAccept) {
-        $("#ocr-loading").hide();
-        $("#server-response").html(data);
-        if (data.match(/\D/g)){
-          $('#predict-button').attr("disabled", false);
-        } else {
-          ajaxRequestAccept = false;
-        }
+        $("#server-response").removeClass("fa fa-spinner fa-pulse fa-fw");
+        $("#server-response").html(data[0]);
       }
     }
   });
@@ -170,10 +158,8 @@ function setCanvasDims() {
   if (window.matchMedia('(max-width: 500px)').matches) {
     canvasWidth = 300;
     canvasHeight = 300;
-    _strokeW = 15;
   } else {
     canvasWidth = 400;
     canvasHeight = 400;
-    _strokeW = 25;
   }
 }
