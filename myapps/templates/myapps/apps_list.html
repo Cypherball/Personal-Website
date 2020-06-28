@@ -1,34 +1,16 @@
 {% extends 'myapps/base.html' %}
 {% load static %}
 {% block content %}
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
-        <a class='navbar-brand' href={% url "me-home" %}>
-            <img src="{% static "me/assets/logo.webp" %}" id="nav-logo"/>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        {% verbatim %}
-        <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav d-flex justify-content-md-between" style="width:100%; padding:0 10%" id="navbar-items">
-                <template v-for="(value, name) in navlist">
-                    <li class="nav-item" v-bind:id="idprefix + name">
-                        <a class="nav-link hvr-grow" :href="value" v-on:click="navItemClick">
-                            {{ name }}
-                        </a>
-                    </li>
-                </template>
+    <div class="container-fluid" id="content-start">
+        <div class="container-fluid my-5">
+            <h1>My Apps (WIP!)</h1>
+        </div>
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="mlOCR/"><h3>OCR</h3></a>
+                    <p class="text-justify">This is a Optical Character Recognition software. It can recognize the digits (0-9) and characters (a-z) one at a time. I used a Convolutional Neural Network to train a model to detect the numbers/characters. The dataset used for training is the MNIST dataset.</p>
+                </li>
             </ul>
         </div>
-        {% endverbatim %}
-    </nav>
-
-    <div class="container-fluid my-5">
-        <h1>My Apps (WIP!)</h1>
-    </div>
-    <div class="container">
-        <ul>
-            <li><a href="mlOCR/"><h3>OCR</hr></a></li>
-        </ul>
-    </div>
 {% endblock content %}
