@@ -64,7 +64,7 @@ function draw() {
     currentPath.push(point);
     noFill();
     stroke(255);
-    strokeWeight(10);
+    strokeWeight(30);
     for (let i = 0; i < drawing.length; i++){
       let path = drawing[i];
       beginShape();
