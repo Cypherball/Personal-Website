@@ -16,6 +16,9 @@ function getCookie(name) {
 
 const csrftoken = getCookie('csrftoken');
 
+async function loadmodel() {
+  return await tf.loadLayersModel('OCRmodel');
+}
 function csrfSafeMethod(method) {
   // these HTTP methods do not require CSRF protection
   return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -37,6 +40,7 @@ let drawing = [];
 let currentPath = [];
 let canDraw = false;
 let ajaxRequestAccept = false;
+const model = loadmodel();
 
 function setup() {
   ajaxRequestAccept = false;
@@ -136,7 +140,9 @@ function predict() {
     'width': width,
     'height': height
   };
-  let imgDataJSON = JSON.stringify(imgData);
+  //tfImage = tf.tensor2d(image);
+
+  /*let imgDataJSON = JSON.stringify(imgData);
   ajaxRequestAccept = true;
   $.ajax({
     type: 'POST',
@@ -155,7 +161,7 @@ function predict() {
         }
       }
     }
-  });
+  });*/
 }
 
 function rgbToGrayscale(r,g,b) {
