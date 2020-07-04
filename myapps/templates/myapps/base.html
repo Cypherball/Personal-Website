@@ -129,6 +129,9 @@
     {% if title == "OCR" %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+        <script>
+          modelURL = "{% static 'myapps/model/ocr/model.json' %}"
+        </script>
         <script src="{% static 'myapps/js/sketch.js' %}"></script>    
     {% endif %}
   </body>

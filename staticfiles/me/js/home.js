@@ -30,8 +30,6 @@ var nav = new Vue({
 //gsap.registerPlugin(ScrollToPlugin);
 
 $(document).ready(function () {
-    console.log($('#content-area').css('visibility'));
-    console.log($('#content-area').css('display'));
     //Display website
     $('#content-area').css({ 'display': 'block', 'visibility': 'visible' });
     //Initialize Smooth Scrolling to section links

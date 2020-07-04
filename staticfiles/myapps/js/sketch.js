@@ -16,6 +16,9 @@ function getCookie(name) {
 
 const csrftoken = getCookie('csrftoken');
 
+async function loadmodel() {
+  return await tf.loadLayersModel(modelURL);
+}
 function csrfSafeMethod(method) {
   // these HTTP methods do not require CSRF protection
   return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -28,15 +31,21 @@ $.ajaxSetup({
   }
 });
 
-
-
 let canvasWidth = 400;
 let canvasHeight = 400;
-let _strokeW = 25;
+let _strokeW = 55;
 let drawing = [];
 let currentPath = [];
 let canDraw = false;
 let ajaxRequestAccept = false;
+//const model = loadmodel();
+let model;
+
+async function preload() {
+  //load model
+  console.log("Loading Model...");
+  model = await tf.loadLayersModel(modelURL).then(console.log("Model loaded!"));
+}
 
 function setup() {
   ajaxRequestAccept = false;
@@ -61,7 +70,7 @@ function setup() {
   $("canvas")[0].addEventListener("touchstart",  function(event) {event.preventDefault()})
   $("canvas")[0].addEventListener("touchmove",   function(event) {event.preventDefault()})
   $("canvas")[0].addEventListener("touchend",    function(event) {event.preventDefault()})
-  $("canvas")[0].addEventListener("touchcancel", function(event) {event.preventDefault()})
+  $("canvas")[0].addEventListener("touchcancel", function (event) { event.preventDefault() })
 }
 
 function startPath() {
@@ -109,58 +118,63 @@ function resetCanvas() {
 
 
 
-function predict() {
+async function predict() {
   $('#predict-button').attr("disabled", true);
   $("#server-response").html("");
   $("#ocr-loading").show();
-  let image = [];
-  loadPixels();
-  let d = pixelDensity();
-  //console.log(pixels.length);
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      index = 4 * (x + y * width);
-      let r = pixels[index];
-      let g = pixels[index+1] ;
-      let b = pixels[index + 2];
-      let grayscale = rgbToGrayscale(r, g, b);
-      image.push(grayscale);
-      pixels[index] = grayscale;
-      pixels[index+1] = grayscale;
-      pixels[index+2] = grayscale;
-      pixels[index+3] = 255;
-    }
-  }
-  imgData = {
-    'image': image,
-    'width': width,
-    'height': height
-  };
-  let imgDataJSON = JSON.stringify(imgData);
-  ajaxRequestAccept = true;
-  $.ajax({
-    type: 'POST',
-    url: '/apps/mlOCRAjax/',
-    data: {
-      "imageData": imgDataJSON  
-    },
-    success: function (data) {
-      if (ajaxRequestAccept) {
-        $("#ocr-loading").hide();
-        $("#server-response").html(data);
-        if (data.match(/\D/g)){
-          $('#predict-button').attr("disabled", false);
-        } else {
-          ajaxRequestAccept = false;
-        }
-      }
-    }
+ 
+  let imagePixels = getResizedImage();
+
+  tfImage = tf.tensor(imagePixels,[1,28,28,1],'float32');
+  const prediction = await model.predict([tfImage]).array().then(function (scores) {
+    scores = scores[0];
+    predicted = scores.indexOf(Math.max(...scores));
+    console.log(predicted);
+    $("#ocr-loading").hide();
+    $("#server-response").html(predicted);
+    $('#predict-button').attr("disabled", false);
   });
 }
 
-function rgbToGrayscale(r,g,b) {
-  return (r + g + b) / 3;
+function getResizedImage() {
+  //create image equal to canvas size
+  let img = createImage(width, height);
+  let imagePixels = [];
+  //load pixels of the image
+  img.loadPixels();
+  //load pixels of the canvas
+  loadPixels();
+  //copy pixel values of canvas to image
+  for (let y = 0; y < width; y++) {
+    for (let x = 0; x < height; x++) {
+      index = 4 * (x + y * width);
+      img.pixels[index] = pixels[index];
+      img.pixels[index+1] = pixels[index+1];
+      img.pixels[index + 2] = pixels[index+2];
+      img.pixels[index + 3] = pixels[index+3];
+    }
+  }
+  img.updatePixels();
+  //resize image to 28x28
+  img.resize(28, 28);
+  img.updatePixels();
+  //reload image pixels
+  img.loadPixels();
+  //convert image to 1D array of grayscale images
+  for (let y = 0; y < img.height; y++) {
+    for (let x = 0; x < img.width; x++) {
+      index = 4 * (x + y * img.width);
+      let r = img.pixels[index];
+      let g = img.pixels[index+1] ;
+      let b = img.pixels[index + 2];
+      let grayscale = (r + g + b) / 3;
+      //normalize and push grayscale pixel
+      imagePixels.push(grayscale/255);
+    }
+  }
+  return imagePixels;
 }
+
 
 $(function () { 
   $("canvas").bind("wheel mousewheel", function(e) {e.preventDefault()});

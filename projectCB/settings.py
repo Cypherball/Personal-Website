@@ -30,8 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['project-cb.herokuapp.com', 'localhost']
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = None
-DATA_UPLOAD_MAX_NUMBER_FIELDS = None
+#DATA_UPLOAD_MAX_MEMORY_SIZE = None
+#DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 
 
 # Application definition
@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'projectCB.urls'
 

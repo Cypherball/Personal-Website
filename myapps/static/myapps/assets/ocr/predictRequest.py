@@ -1,4 +1,5 @@
-#import matplotlib.pyplot as plt
+'''
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import json
@@ -10,17 +11,17 @@ IMG_SIZE = 28
 
 def process(data):
     imgData = json.loads(data)
-    width = imgData['width']
-    height = imgData['height']
-    #full_filename=os.path.join('myapps', 'static', 'myapps', 'assets', 'ocr', "image.txt")
+    width = 28#imgData['width']
+    height = 28#imgData['height']
+    full_filename=os.path.join('myapps', 'static', 'myapps', 'assets', 'ocr', "image.txt")
     image = np.asarray(imgData['image'],dtype=float)
-    #np.savetxt(full_filename, image)
+    np.savetxt(full_filename, image)
     #image = np.loadtxt(full_filename)
-    image = image.reshape(width, height)
-    image_resized = resize(image, (IMG_SIZE, IMG_SIZE), anti_aliasing=False)
-    image_resized = tf.keras.utils.normalize(image_resized, axis=1)
-    #plt.imshow(image_resized)
-    #plt.show()
+    image_resized = image.reshape(28, 28)
+    #image_resized = resize(image_resized, (IMG_SIZE, IMG_SIZE), anti_aliasing=False)
+    #image_resized = tf.keras.utils.normalize(image_resized, axis=1)
+    plt.imshow(image_resized)
+    plt.show()
     prediction = predict(image_resized)
     return str(prediction)
 
@@ -33,3 +34,4 @@ def predict(image):
         return np.argmax(predictions[0])
     except:
         return "Server Error :("
+'''
