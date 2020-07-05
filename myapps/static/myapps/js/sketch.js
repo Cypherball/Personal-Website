@@ -176,7 +176,7 @@ function getResizedImage() {
       let grayscale = (r + g + b) / 3;
       //normalize and push grayscale pixel
       normalized_pixel = grayscale / 255;
-      if(normalized_pixel>0.1)
+      if(normalized_pixel>0.2)
         imagePixels.push(1);
       else if(normalized_pixel<0.05)
         imagePixels.push(0);
