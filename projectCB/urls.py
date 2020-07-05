@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from projectCB import views as projectCBviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('me.urls')),
     path('apps/', include('myapps.urls')),
 ]
+
+handler404 = projectCBviews.handler404
+handler500 = projectCBviews.handler500

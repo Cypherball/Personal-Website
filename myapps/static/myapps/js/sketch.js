@@ -33,7 +33,7 @@ $.ajaxSetup({
 
 let canvasWidth = 400;
 let canvasHeight = 400;
-let _strokeW = 55;
+let _strokeW = 15;
 let drawing = [];
 let currentPath = [];
 let canDraw = false;
@@ -84,6 +84,9 @@ function endPath(){
   canDraw = false;
 }
 
+let draw_img = false;
+let img;
+
 function draw() {
   if (canDraw) {
     let point = { x: mouseX, y: mouseY };
@@ -100,10 +103,13 @@ function draw() {
       endShape();
     }
   }
+  if(draw_img)
+    image(img, 0, 0);
 }
 
 
 function resetCanvas() {
+  draw_img = false;
   setCanvasDims();
   resizeCanvas(canvasWidth, canvasHeight);
   drawing.splice(0, drawing.length);
@@ -113,46 +119,44 @@ function resetCanvas() {
   $('#predict-button').attr("disabled", true);
   background(0, 0, 0);
   $("#ocr-loading").hide();
-  $("#server-response").html("");
+  $("#tfjs-response").html("");
 }
 
 
 
 async function predict() {
   $('#predict-button').attr("disabled", true);
-  $("#server-response").html("");
+  $("#tfjs-response").html("");
   $("#ocr-loading").show();
  
   let imagePixels = getResizedImage();
 
-  tfImage = tf.tensor(imagePixels,[1,28,28,1],'float32');
+  draw_img = true;
+  
+  tfImage = tf.tensor(imagePixels, [1, 28, 28, 1], 'float32');
   const prediction = await model.predict([tfImage]).array().then(function (scores) {
+    tf.dispose(tfImage);
     scores = scores[0];
     predicted = scores.indexOf(Math.max(...scores));
-    console.log(predicted);
+    //console.log(predicted);
     $("#ocr-loading").hide();
-    $("#server-response").html(predicted);
+    $("#tfjs-response").html(predicted);
     $('#predict-button').attr("disabled", false);
   });
+  
 }
 
 function getResizedImage() {
   //create image equal to canvas size
-  let img = createImage(width, height);
+  img = createImage(width, height);
   let imagePixels = [];
   //load pixels of the image
   img.loadPixels();
   //load pixels of the canvas
   loadPixels();
   //copy pixel values of canvas to image
-  for (let y = 0; y < width; y++) {
-    for (let x = 0; x < height; x++) {
-      index = 4 * (x + y * width);
-      img.pixels[index] = pixels[index];
-      img.pixels[index+1] = pixels[index+1];
-      img.pixels[index + 2] = pixels[index+2];
-      img.pixels[index + 3] = pixels[index+3];
-    }
+  for (let y = 0; y < pixels.length; y++) {
+    img.pixels[y] = pixels[y];
   }
   img.updatePixels();
   //resize image to 28x28
@@ -169,7 +173,13 @@ function getResizedImage() {
       let b = img.pixels[index + 2];
       let grayscale = (r + g + b) / 3;
       //normalize and push grayscale pixel
-      imagePixels.push(grayscale/255);
+      normalized_pixel = grayscale / 255;
+      if(normalized_pixel>0.2)
+        imagePixels.push(1);
+      else if(normalized_pixel<0.1)
+        imagePixels.push(0);
+      else
+        imagePixels.push(normalized_pixel);
     }
   }
   return imagePixels;
@@ -184,10 +194,10 @@ function setCanvasDims() {
   if (window.matchMedia('(max-width: 500px)').matches) {
     canvasWidth = 300;
     canvasHeight = 300;
-    _strokeW = 15;
+    _strokeW = 20;
   } else {
     canvasWidth = 400;
     canvasHeight = 400;
-    _strokeW = 25;
+    _strokeW = 20;
   }
 }
