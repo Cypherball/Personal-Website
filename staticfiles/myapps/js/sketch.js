@@ -71,17 +71,20 @@ function setup() {
   $("canvas")[0].addEventListener("touchmove",   function(event) {event.preventDefault()})
   $("canvas")[0].addEventListener("touchend",    function(event) {event.preventDefault()})
   $("canvas")[0].addEventListener("touchcancel", function (event) { event.preventDefault() })
+  noLoop();
 }
 
 function startPath() {
+  loop();
   canDraw = true;
   $('#predict-button').attr("disabled", false);
   currentPath.splice(0, currentPath.length);
   drawing.push(currentPath);
 }
 
-function endPath(){
+function endPath() {
   canDraw = false;
+  noLoop();
 }
 
 let draw_img = false;
@@ -120,6 +123,7 @@ function resetCanvas() {
   background(0, 0, 0);
   $("#ocr-loading").hide();
   $("#tfjs-response").html("");
+  noLoop();
 }
 
 
@@ -131,7 +135,7 @@ async function predict() {
  
   let imagePixels = getResizedImage();
 
-  draw_img = true;
+  //draw_img = true;
   
   tfImage = tf.tensor(imagePixels, [1, 28, 28, 1], 'float32');
   const prediction = await model.predict([tfImage]).array().then(function (scores) {
@@ -141,9 +145,7 @@ async function predict() {
     //console.log(predicted);
     $("#ocr-loading").hide();
     $("#tfjs-response").html(predicted);
-    $('#predict-button').attr("disabled", false);
   });
-  
 }
 
 function getResizedImage() {
@@ -174,9 +176,9 @@ function getResizedImage() {
       let grayscale = (r + g + b) / 3;
       //normalize and push grayscale pixel
       normalized_pixel = grayscale / 255;
-      if(normalized_pixel>0.2)
+      if(normalized_pixel>0.1)
         imagePixels.push(1);
-      else if(normalized_pixel<0.1)
+      else if(normalized_pixel<0.05)
         imagePixels.push(0);
       else
         imagePixels.push(normalized_pixel);

@@ -1,13 +1,14 @@
 {% extends 'myapps/base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container-fluid" id="content-start">
+    <section class="container-fluid" id="content-start">
         <div class="container mt-5">
-            <h1>ML OCR (WIP!)</h1>
+            <h1>Digit Recognizer (using CNN)</h1>
         </div>
         <div class="container my-2 text-justify">
-            <p>This is a Optical Character Recognition software. It can recognize the digits (0-9) and characters (a-z) one at a time. I used a Convolutional Neural Network to train a model to detect the numbers/characters. The dataset used for training is the MNIST dataset.</p>
-            <p>Draw a character or a number and see if the model correctly recognizes your input :)</p>
+            <p>This is a Handwritten Digit Recognition software. It can recognize the digits (0-9). I used a Convolutional Neural Network to train a model to detect the numbers. The dataset used for training is the MNIST dataset.</p>
+            <p>Draw a number and see if the model correctly recognizes your input :)</p>
+            <p><em>*For accurate results, draw your input in the center of the canvas.</em></p>
         </div>
         <div class="container">
             <h3 class="text-center">Draw Below</h3>
@@ -26,5 +27,5 @@
                 </strong>
             </p>
         </div>
-    </div>
+    </section>
 {% endblock content %}
