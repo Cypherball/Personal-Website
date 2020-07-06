@@ -59,10 +59,12 @@ body {
 //Nav
 .nav-custom{
     background-color: $nav-background;
+    min-height: 8vh;
+    max-height: 8vh;
 }
 
 #nav-logo{
-    width: 75px;
+    width: 60px;
     height: auto;
 }
 

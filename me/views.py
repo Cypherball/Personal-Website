@@ -22,4 +22,7 @@ def home(request):
     return render(request, 'me/home.html', data)
 
 def portfolio(request):
-    return render(request, 'me/portfolio.html', {'title':'Portfolio'})
+    data = {
+        'title':'Portfolio'
+    }
+    return render(request, 'me/portfolio.html', data)

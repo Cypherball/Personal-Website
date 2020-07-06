@@ -8,7 +8,7 @@ var nav = new Vue({
             Education: "/#education",
             Skills: "/#skills",
             Certifications: "/#certifications",
-            Portfolio: "/#portfolio",
+            Portfolio: "/portfolio/",
             Projects: "/#projects",
             Apps: "/apps",
             Contact: "/#contact"

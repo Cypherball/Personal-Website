@@ -40,7 +40,12 @@
     <link rel="stylesheet" href="{% static 'me/hover/css/hover-min.css' %}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'me/main.css' %}">
+    {% if title == 'Home' %}
+        <link rel="stylesheet" href="{% static 'me/home.css' %}">
+    {% elif title == 'Portfolio' %}
+        <link rel="stylesheet" href="{% static 'me/portfolio.css' %}">
+    {% endif %}
+    
   </head>
   <body>
 
@@ -103,6 +108,11 @@
       <!-- Animations -->
       <script src="{% static 'me/js/home-anim.js' %}"></script>
       <script src="{% static 'me/js/home.js' %}"></script>
+    {% endif %}
+    {% if title == 'Portfolio' %}
+      <!-- Animations 
+      <script src="{% static 'me/js/portfolio-anim.js' %}"></script> -->
+      <script src="{% static 'me/js/portfolio.js' %}"></script>
     {% endif %}
 
   </body>
