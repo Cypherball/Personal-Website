@@ -24,4 +24,5 @@ var nav = new Vue({
 $(function(){
     $("#nav-Portfolio").addClass("active");
     initSmoothScroll();
+    startAnims();
 });

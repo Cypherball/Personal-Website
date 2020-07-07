@@ -54,6 +54,9 @@ footer {
   background-color: #1C3041;
   min-height: 8vh;
   max-height: 8vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #nav-logo {
@@ -109,37 +112,34 @@ section {
   background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
 }
 
-#content-start {
-  min-height: 90vh;
+#content-area {
+  height: 100vh;
 }
 
 #portfolio-intro {
   min-height: 92vh;
+  padding-top: 8vh;
 }
 
 #portfolio-intro #intro-container {
   height: 92vh;
-  position: absolute;
-  top: 8vh;
 }
 
 #portfolio-intro #intro-container .intro-heading {
   position: absolute;
+  opacity: 0%;
+}
+
+#portfolio-intro #intro-container .intro-welcome {
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
 }
 
 #portfolio-intro #intro-container .intro-1 {
-  background-color: #01BAEF;
-  background-image: url("assets/portfolio/2.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-}
-
-#portfolio-intro #intro-container .intro-2 {
   background-color: #FBFBFF;
   background-image: url("assets/portfolio/1.png");
   background-repeat: no-repeat;
@@ -147,8 +147,20 @@ section {
   background-size: cover;
   position: absolute;
   right: 0;
-  width: 30%;
+  width: 100%;
   height: 100%;
+}
+
+#portfolio-intro #intro-container .intro-2 {
+  background-color: #01BAEF;
+  background-image: url("assets/portfolio/2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0;
 }
 
 @media (max-width: 768px) {
