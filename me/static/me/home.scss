@@ -7,7 +7,8 @@ $nav-background: #0a0a0a;
     src: url('fonts/good_times.ttf')
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 html, body{
     scroll-behavior: smooth;
@@ -69,10 +70,14 @@ body {
     }
 
     h1{
-        font-family: GoodTimes, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        //font-family: GoodTimes, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: 'Bangers', cursive;
+        font-size: 4.5rem;
         color: mediumorchid;
     }
     p{
+        font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
         color: plum;
     }
 }
@@ -93,7 +98,7 @@ section{
     min-height: 100vh;
 }
 
-section, footer{
+/*section, footer{
     border-style: solid;
     border-width: 6px 10px;
     border-color: $body-background;
@@ -102,7 +107,7 @@ section, footer{
 footer{
     border-width: 6px 10px 10px 10px;
     
-}
+}*/
 
 .push-spaces{
     height: 60px;
@@ -115,6 +120,7 @@ footer{
 .section-title{
     color: white;
     padding-bottom: 20px;
+    font-family: 'Bangers', cursive;
 }
 
 .bg-alt{
@@ -131,7 +137,7 @@ footer{
     background-color: #30cfd0;
     background-image: linear-gradient(to bottom,#30cfd0 0%, #330867 100%);
     p{
-        font-family: 'Sriracha', cursive;
+        font-family: 'Lato', sans-serif;
     }
     .svg-bg{
         background-image: url("assets/Sections/about-bg.webp");

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Sriracha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 @font-face {
   font-family: GoodTimes;
   src: url("fonts/good_times.ttf");
@@ -66,11 +67,14 @@ body {
 }
 
 #intro-header h1 {
-  font-family: GoodTimes, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Bangers', cursive;
+  font-size: 4.5rem;
   color: mediumorchid;
 }
 
 #intro-header p {
+  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
   color: plum;
 }
 
@@ -88,17 +92,16 @@ section {
   min-height: 100vh;
 }
 
-section, footer {
-  border-style: solid;
-  border-width: 6px 10px;
-  border-color: #101010;
-  border-radius: 15px;
+/*section, footer{
+    border-style: solid;
+    border-width: 6px 10px;
+    border-color: $body-background;
+    border-radius: 15px;
 }
-
-footer {
-  border-width: 6px 10px 10px 10px;
-}
-
+footer{
+    border-width: 6px 10px 10px 10px;
+    
+}*/
 .push-spaces {
   height: 60px;
 }
@@ -110,6 +113,7 @@ footer {
 .section-title {
   color: white;
   padding-bottom: 20px;
+  font-family: 'Bangers', cursive;
 }
 
 .bg-alt {
@@ -127,7 +131,7 @@ footer {
 }
 
 #about p {
-  font-family: 'Sriracha', cursive;
+  font-family: 'Lato', sans-serif;
 }
 
 #about .svg-bg {

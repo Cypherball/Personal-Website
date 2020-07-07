@@ -2,7 +2,6 @@ var nav = new Vue({
     el: "#navbar-items",
     data: {
         idprefix: "nav-",
-        //navlinks: ["#about","#education","#skills","#certifications","#portfolio","#projects","#contact"],
         navlist: {
             About: "#about",
             Education: "#education",
@@ -10,7 +9,7 @@ var nav = new Vue({
             Certifications: "#certifications",
             Portfolio: "#portfolio",
             Projects: "#projects",
-            Apps: "apps/",
+            Apps: "#apps",
             Contact: "#contact"
         }
     },
@@ -26,8 +25,6 @@ var nav = new Vue({
         }
     }
 });
-
-//gsap.registerPlugin(ScrollToPlugin);
 
 $(document).ready(function () {
     //Display website

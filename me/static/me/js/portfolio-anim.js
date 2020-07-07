@@ -14,12 +14,14 @@ async function startAnims() {
     }
     
     //Intro Section Animations-------------------------------------------
+    gsap.to("#portfolio-intro .intro-welcome", {
+        opacity: "100%", ease: Linear.easeOut, duration: 1.5
+    },"+=1");
     var intro_anim = gsap.timeline({
         scrollTrigger: {
             trigger: '#portfolio-intro',
             //start: bg_start,
-            scrub: 5,
-            scrub: true,
+            scrub: 1,
             pin: true,
         }, default: { duration: 3 }
     });
