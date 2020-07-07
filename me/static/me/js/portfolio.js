@@ -4,7 +4,7 @@ var nav = new Vue({
         idprefix: "nav-",
         //navlinks: ["#about","#education","#skills","#certifications","#portfolio","#projects","#contact"],
         navlist: {
-            About: "/ #about",
+            About: "/#about",
             Education: "/#education",
             Skills: "/#skills",
             Certifications: "/#certifications",
@@ -23,6 +23,6 @@ var nav = new Vue({
 
 $(function(){
     $("#nav-Portfolio").addClass("active");
-    initSmoothScroll();
+    //initSmoothScroll();
     startAnims();
 });

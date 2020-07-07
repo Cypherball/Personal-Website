@@ -28,7 +28,7 @@ SECRET_KEY = '@z4l-=nxjd+br@pf%v1a@@-3o4a=qh3y4sj3(tj#&ur)y7h-hc'
 #DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
 DEBUG = True
 
-ALLOWED_HOSTS = ['project-cb.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['nitish-web.dev', 'project-cb.herokuapp.com', 'localhost']
 
 #DATA_UPLOAD_MAX_MEMORY_SIZE = None
 #DATA_UPLOAD_MAX_NUMBER_FIELDS = None
