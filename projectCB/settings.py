@@ -17,19 +17,15 @@ import django_heroku
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '@z4l-=nxjd+br@pf%v1a@@-3o4a=qh3y4sj3(tj#&ur)y7h-hc'
 #SECRET_KEY = os.environ.get('SECRET_KEY_PROJECT_CB')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nitish-web.dev', 'project-cb.herokuapp.com', 'localhost']
-
 #DATA_UPLOAD_MAX_MEMORY_SIZE = None
 #DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 

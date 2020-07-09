@@ -2,21 +2,29 @@
     {% load static %}
     {% block content %}
 
-        <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0 d-flex justify-content-center align-items-center' id='intro-header'>
-            <div class="container-fluid m-0 px-5">
-                <div class="row">
-                    <div class="col-sm-12 col-md-8 d-flex flex-column justify-content-center align-items-center">
-                        <h1 class='display-4 text-center anim-header-h1 pb-5 hvr-bob'>Nitish Devadiga</h1>
-                        <div class="push-spaces"></div>
-                        <p class='lead text-center anim-header-p hvr-bob'>Web Developer | Programmer | Graphic Designer</p>
+        <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0' id='intro-header'>
+                <div class="header-bg p-0">
+                </div>
+                <div class="header-blue-lines p-0">
+                </div>
+                <div class="header-purple-line p-0" >
+                </div>
+                <div class='header-triangle p-0'>
+                </div>
+                <div class='header-me p-0'>
+                </div>
+                <div class="container d-flex align-items-center justify-content-center header-text-container pt-md-5">
+                    <div class='header-text text-center'>
+                        <h1 class='display-4 text-center anim-header-h1 hvr-float'>Nitish Devadiga</h1>
+                        <p class='text-center hvr-float'>Web Developer | Programmer | Graphic Designer</p>
                     </div>
-                    <div class="col d-flex justify-content-center align-items-center hvr-grow">
-                        <img src="{% static "me/assets/dp.webp" %}" class='rounded-circle anim-header-dp ' id='dp'/>
-                    </div>
-                </div>   
-            </div>
+                </div>
+                <a href="#about">
+                    <div id="scroll-down-indicator"><i class="fas fa-chevron-down"></i></div>
+                </a>
         </header>
 
+        <div class="main-content">
         <!-- Navigation -->
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
             <a class='navbar-brand' href={% url "me-home" %}>
@@ -100,7 +108,7 @@
                                 {% endif %}
                                 <p class="anim-education-details">Marks: {{ e.score }} {{ e.scoreFormat }}</p>
                                 {% if e.marksheet %}
-                                    <a href="{{ e.marksheet }}" target="_blank" class="anim-education-details">View Marksheet</a>
+                                    <a href="{{ e.marksheet }}" target="_blank" class="anim-education-details text-decoration-none hvr-float">View Marksheet</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -121,13 +129,13 @@
                 <h2 class="display-4 mb-3 section-title anim-skills-title">
                     Skills
                 </h2>
-                <div class="container">
+                <div class="container mb-5">
                 {% for c in skills %}
                     <h4 class="anim-skills-category">{{ c.0.category }}</h4>
                     <div class="container text-white my-4">
-                        <ul class="list-inline d-flex flex-wrap ">
+                        <ul class="list-inline d-flex flex-wrap" id="skill-items">
                         {% for s in c %}
-                            <li class="list-inline-item bg-primary rounded text-white text-center p-2 m-2 hvr-float-shadow anim-skills-skillList">{{ s.skill }}</li>
+                            <li class="list-inline-item rounded text-white text-center p-2 m-2 hvr-float-shadow anim-skills-skillList">{{ s.skill }}</li>
                         {% endfor %}
                         </ul>
                     </div>
@@ -143,7 +151,7 @@
             <div class="container">
                 <div class="section-spacer"></div>
                 <h2 class="display-4 mb-3 section-title anim-certification-title">
-                    Certifications
+                    Certificates
                 </h2>
                 <div class="row">
                     {% for certification in certifications %}
@@ -310,6 +318,7 @@
             </div>
         </div>
         </section>
+        </div>
 
     {% endblock content %}
     

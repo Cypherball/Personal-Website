@@ -1,0 +1,5 @@
+about: 30cfd0   330867
+
+education: 7579ff   b224ef
+
+skills: linear-gradient( 109.8deg,  rgba(62,5,116,1) -5.2%, rgba(41,14,151,1) -5.2%, rgba(216,68,148,1) 103.3% )

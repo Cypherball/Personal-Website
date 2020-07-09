@@ -1,0 +1,26 @@
+@import 'main.scss';
+
+#canvas-controls{
+    button{
+        min-width: 200px;
+        max-width: 200px;
+    }
+}
+
+#canvas{
+    border: 1px solid black;
+    width: 90%;
+}
+
+canvas{
+    touch-action: none;
+}
+
+@media (max-width:500px){
+    #canvas-controls{
+        button{
+            min-width: 150px;
+            max-width: 150px;
+        }
+    }
+}
