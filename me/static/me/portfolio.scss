@@ -1,6 +1,6 @@
 $body-background: #fafafa;
 $body-background-alt: #202020;
-$nav-background: #0a0a0a;
+$nav-background: #1C3041;
 
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 
@@ -46,6 +46,7 @@ footer{
 }
 
 #content-area{
+    height: 100vh;
 }
 
 .link-no-style{
@@ -60,7 +61,7 @@ footer{
 
 //Nav
 .nav-custom{
-    background-color: #1C3041;
+    background-color: $nav-background;
     min-height: 8vh;
     position: fixed;
     top: 0;

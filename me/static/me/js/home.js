@@ -28,10 +28,16 @@ var nav = new Vue({
 
 $(document).ready(function () {
     gsap.registerPlugin(ScrollTrigger);
+    //Hide Loading
+    $('.load #loading').hide();
+    $('.load').css({ 'min-height':'0'});
+    $('.load').hide();
     //Display website
-    $('#content-area').css({ 'display': 'block', 'visibility': 'visible' });
+    $('header').css({ 'display': 'block', 'visibility': 'visible' });
+    $('#content-start').css({ 'display': 'block', 'visibility': 'visible' });
     //Initialize Smooth Scrolling to section links
     initSmoothScroll();
+    
     //Start page animations
     startAnims();
     

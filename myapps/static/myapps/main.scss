@@ -1,43 +1,39 @@
-$body-background: #f1f1f1;
+$body-background: #f2f2f2;
+//$body-background-gradient: linear-gradient(45deg, #f5f7fa 0%, #c3cfe2 100%);
+$body-background-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 $body-background-alt: #e0e0e0;
-$nav-background: #0a0a0a;
+$nav-background: #000033;
 
-@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Teko:wght@500&display=swap');
 
 html, body{
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Teko', "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p{
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    color:#2f2f2f;
 }
 
 html {
     font-size: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     html {
         font-size: 1.1rem;
     }
 }
 
-@media (min-width: 992px) {
-    html {
-        font-size: 1.2rem;
-    }
-}
-
-@media (min-width: 1200px) {
-    html {
-        font-size: 1.2rem;
-    }
-}
-
 body {
-    overflow-x: hidden;
     background-color: $body-background;
-}
-
-#content-area{
-    //visibility: hidden;
-    //display: none;
+    background-image: $body-background-gradient;
 }
 
 .link-no-style{
@@ -65,16 +61,6 @@ body {
 section{
     min-height: 100vh;
 }
-
-/*section, footer{
-    border-style: solid;
-    border-width: 6px 10px;
-    border-color: $body-background;
-    border-radius: 15px;
-}
-footer{
-    border-width: 6px 10px 10px 10px; 
-}*/
 
 .push-spaces{
     height: 60px;
@@ -142,7 +128,11 @@ footer{
 //----- Footer -----
 
 #footer {
-    background-image: linear-gradient( 109.6deg,  rgba(84,13,110,1) 11.2%, rgba(238,66,102,1) 100.2% );
+    background-image: linear-gradient(to bottom, #000033 0%, #0f0f0f 100%);;
+    color:#fff;
+}
+#footer p {
+    color: #ffffff;
 }
 
 #footer a {

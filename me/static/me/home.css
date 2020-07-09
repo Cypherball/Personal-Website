@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Teko:wght@500&display=swap");
 html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 html {
@@ -14,13 +16,19 @@ html {
 }
 
 body {
-  overflow-x: hidden;
   background-color: #000033;
 }
 
-#content-area {
+header, #content-start {
   visibility: hidden;
   display: none;
+}
+
+.load {
+  min-height: 74vh;
+  color: #d84494;
+  font-size: 5rem;
+  background-color: #330867;
 }
 
 .link-no-style {
@@ -36,8 +44,7 @@ body {
 #intro-header {
   width: 100%;
   background-color: #6666ff;
-  height: 100vh;
-  z-index: -1;
+  min-height: 100vh;
 }
 
 #intro-header .header-bg {
@@ -49,7 +56,7 @@ body {
   background-position: top right;
   background-size: cover;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 #intro-header .header-blue-lines {
@@ -103,6 +110,8 @@ body {
 
 #intro-header .header-text-container {
   height: 100%;
+  top: 0;
+  position: absolute;
 }
 
 #intro-header .header-text-container .header-text h1 {
@@ -139,15 +148,11 @@ body {
   width: 100%;
   font-size: 2rem;
   height: 4rem;
-  left: 50%;
-  bottom: 2rem;
-  letter-spacing: -1px;
+  left: 0;
   line-height: 4rem;
-  margin-left: -3rem;
-  margin-bottom: 2rem;
+  bottom: 5rem;
   position: absolute;
   text-align: center;
-  width: 6rem;
 }
 
 @-webkit-keyframes bounce {

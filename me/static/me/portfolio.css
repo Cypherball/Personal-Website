@@ -40,6 +40,10 @@ footer {
   z-index: 100;
 }
 
+#content-area {
+  height: 100vh;
+}
+
 .link-no-style {
   text-decoration: none !important;
   color: #fff;

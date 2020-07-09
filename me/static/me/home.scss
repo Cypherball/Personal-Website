@@ -7,6 +7,8 @@ $headFont: 'Teko', "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 html, body{
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 html {
@@ -20,13 +22,20 @@ html {
 }
 
 body {
-    overflow-x: hidden;
+    
     background-color: $body-background;
 }
 
-#content-area{
+header, #content-start{
     visibility: hidden;
     display: none;
+}
+
+.load{
+    min-height: 74vh;
+    color: #d84494;
+    font-size: 5rem;
+    background-color: #330867;
 }
 
 .link-no-style{
@@ -42,8 +51,7 @@ body {
 #intro-header{
     width: 100%;
     background-color: #6666ff;
-    height: 100vh;
-    z-index: -1;
+    min-height: 100vh;
     .header-bg{
         position: absolute;
         top: 0;
@@ -52,7 +60,7 @@ body {
         background-position: top right;
         background-size: cover;
         width: 100%;
-        height: 100%;
+        height: 100vh;
     }
     .header-blue-lines{
         width: 100%;
@@ -101,6 +109,8 @@ body {
     }
     .header-text-container{
         height: 100%;
+        top: 0;
+        position: absolute;
         .header-text{
             h1{
                 opacity: 0%;
@@ -129,22 +139,17 @@ body {
     }
       
     #scroll-down-indicator {
-    opacity: 0;
-    animation: bounce 1.5s ease infinite;
-    color: #fff;
-    width: 100%;
-    //content: '╲╱';
-    font-size: 2rem;
-    height: 4rem;
-    left: 50%;
-    bottom: 2rem;
-    letter-spacing: -1px;
-    line-height: 4rem;
-    margin-left: -3rem;
-    margin-bottom: 2rem;
-    position: absolute;
-    text-align: center;
-    width: 6rem;
+        opacity: 0;
+        animation: bounce 1.5s ease infinite;
+        color: #fff;
+        width: 100%;
+        font-size: 2rem;
+        height: 4rem;
+        left: 0;
+        line-height: 4rem;
+        bottom:5rem;
+        position: absolute;
+        text-align: center;
     }
     
     @keyframes bounce {

@@ -1,8 +1,7 @@
     {% extends 'me/base.html' %}
     {% load static %}
-    {% block content %}
-
-        <header class='jumbotron jumbotron-fluid bg-dark text-white shadow mb-0' id='intro-header'>
+    {% block content %}       
+        <header class='jumbotron jumbotron-fluid text-white mb-0' id='intro-header'>
                 <div class="header-bg p-0">
                 </div>
                 <div class="header-blue-lines p-0">
@@ -19,12 +18,11 @@
                         <p class='text-center hvr-float'>Web Developer | Programmer | Graphic Designer</p>
                     </div>
                 </div>
-                <a href="#about">
-                    <div id="scroll-down-indicator"><i class="fas fa-chevron-down"></i></div>
+                <a href="#about" id="scroll-down-indicator">
+                    <i class="fas fa-chevron-down"></i>
                 </a>
         </header>
 
-        <div class="main-content">
         <!-- Navigation -->
         <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav-custom">
             <a class='navbar-brand' href={% url "me-home" %}>
@@ -48,6 +46,11 @@
             {% endverbatim %}
         </nav>
 
+        <div class="container-fluid load d-flex align-items-center justify-content-center">
+            <span class="fa fa-spinner fa-pulse fa-fw" id="loading"></span>
+        </div>
+
+        <div class="container-fluid p-0" id="content-start">
         <!-- About Me -->
         <section class="container-fluid p-0 " id="about">
         <div class="container-fluid svg-bg py-2 d-flex align-items-center justify-content-center">
@@ -319,6 +322,5 @@
         </div>
         </section>
         </div>
-
     {% endblock content %}
     

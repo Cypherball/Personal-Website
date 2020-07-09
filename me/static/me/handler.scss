@@ -1,13 +1,6 @@
-$body-background: #101010;
+$body-background: #000033;
 $body-background-alt: #1f1f1f;
-$nav-background: #0a0a0a;
-
-@font-face{
-    font-family: GoodTimes;
-    src: url('fonts/good_times.ttf')
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+$nav-background: #000033;
 
 html, body{
     scroll-behavior: smooth;
