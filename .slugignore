@@ -16,3 +16,4 @@ ipython_config.py
 predictRequest.py
 *.rar
 *.zip
+static/

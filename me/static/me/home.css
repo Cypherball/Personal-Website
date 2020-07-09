@@ -567,13 +567,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  #intro-header {
-    background-image: url("assets/saber_r.webp");
-    padding: 25% 0%;
-  }
-  #intro-header [class*="col-"] {
-    margin-bottom: 200px;
-  }
   .push-spaces {
     height: 30px;
   }
