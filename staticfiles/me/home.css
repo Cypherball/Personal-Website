@@ -19,6 +19,30 @@ body {
   background-color: #000033;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000033 #336699;
+}
+
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #336699;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000033;
+  border: 3px solid #336699;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #99ccff;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
 header, #content-start {
   visibility: hidden;
   display: none;
@@ -125,14 +149,14 @@ header, #content-start {
 }
 
 #intro-header .header-text-container .header-text p {
-  opacity: 0%;
+  opacity: 100%;
   margin-top: 2rem;
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
-  color: #000033;
+  color: #fff;
   padding: 0.5rem;
-  background-color: #99ccff;
+  background-color: #000033;
   border-radius: 1rem;
 }
 

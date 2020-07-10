@@ -5,6 +5,30 @@ html, body {
   max-width: 100%;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000033 #fdfcfb;
+}
+
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #fdfcfb;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #000033;
+  border: 3px solid #fdfcfb;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #b224ef;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Teko', "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -25,7 +49,7 @@ html {
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: #000033;
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 

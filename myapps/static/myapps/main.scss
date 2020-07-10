@@ -1,8 +1,9 @@
-$body-background: #f2f2f2;
+$body-background: #e2d1c3;
 //$body-background-gradient: linear-gradient(45deg, #f5f7fa 0%, #c3cfe2 100%);
 $body-background-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 $body-background-alt: #e0e0e0;
 $nav-background: #000033;
+$scrollbar-background: #000033;
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Teko:wght@500&display=swap');
 
@@ -10,6 +11,27 @@ html, body{
     scroll-behavior: smooth;
     overflow-x: hidden;
     max-width: 100%;
+}
+
+//Custom Scrollbar 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-background #fdfcfb;
+}
+
+*::-webkit-scrollbar {
+    width: 15px;
+}
+*::-webkit-scrollbar-track {
+    background: #fdfcfb;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-background;
+    //border: 3px solid #fdfcfb;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: #220055;
+    transition: 0.5s ease;
 }
 
 h1,h2,h3,h4,h5,h6{

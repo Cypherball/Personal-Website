@@ -22,8 +22,28 @@ html {
 }
 
 body {
-    
     background-color: $body-background;
+}
+
+//Custom Scrollbar 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $body-background #336699;
+}
+
+*::-webkit-scrollbar {
+    width: 15px;
+}
+*::-webkit-scrollbar-track {
+    background: #336699;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $body-background;
+    border: 3px solid #336699;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: #99ccff;
+    transition: 0.5s ease;
 }
 
 header, #content-start{
@@ -122,14 +142,14 @@ header, #content-start{
                 display: block;
             }
             p{
-                opacity: 0%;
+                opacity: 100%;
                 margin-top: 2rem;
                 font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-weight: 400;
                 font-size: 1.2rem;
-                color: $body-background;
+                color: #fff;//$body-background;
                 padding: 0.5rem;
-                background-color: #99ccff;
+                background-color: $body-background;//#99ccff;
                 border-radius: 1rem;
             }
         }

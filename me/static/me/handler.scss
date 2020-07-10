@@ -28,6 +28,27 @@ html {
     }
 }
 
+//Custom Scrollbar 
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $body-background #336699;
+}
+
+*::-webkit-scrollbar {
+    width: 15px;
+}
+*::-webkit-scrollbar-track {
+    background: #336699;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $body-background;
+    border: 3px solid #336699;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: #b224ef;
+    transition: 0.5s ease;
+}
+
 body {
     overflow-x: hidden;
     background-color: $body-background;
