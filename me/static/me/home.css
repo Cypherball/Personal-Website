@@ -149,12 +149,12 @@ header, #content-start {
 }
 
 #intro-header .header-text-container .header-text p {
-  opacity: 100%;
+  opacity: 0%;
   margin-top: 2rem;
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1.2rem;
-  color: #fff;
+  color: #ccffff;
   padding: 0.5rem;
   background-color: #000033;
   border-radius: 1rem;
