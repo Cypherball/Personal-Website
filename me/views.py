@@ -1,7 +1,9 @@
-from django.shortcuts import render
-from .models import Projects, Education, About, Skill, SkillCategory, Certifications, Contact
-#from django.http import HttpResponse
-
+from django.shortcuts import render, redirect
+from .models import *
+from django.http import JsonResponse
+from django.utils import timezone
+from django.core.mail import send_mail
+import json
 
 
 def home(request):
@@ -21,8 +23,46 @@ def home(request):
     
     return render(request, 'me/home.html', data)
 
+
 def portfolio(request):
     data = {
         'title':'Portfolio'
     }
     return render(request, 'me/portfolio.html', data)
+
+
+def contactFormSubmition(request):
+    if request.method == 'POST':
+        clientData = json.loads(request.POST.get('data', ''))
+        clientName = clientData.get('clientName')
+        clientEmail = clientData.get('clientEmail')
+        msg = clientData.get('message')
+        body = 'Name: ' + clientName + '\n' + 'Email: ' + clientEmail + '\n\n' + msg
+        error = False
+        response = ''
+        try:
+            client = ClientMail(time=timezone.now(), name=clientName, email=clientEmail, message=msg)
+            client.save()
+            send_mail(
+                '[nitish-web.dev] Message from ' + clientName,
+                body,
+                clientEmail,
+                ['contact@nitish-web.dev'],
+                fail_silently=False,
+            )
+        except:
+            error = True
+        
+        if not error:
+            response = 'success'
+        else:
+            response = 'error'
+
+        data = {
+            'response': response
+        }
+
+        return JsonResponse(data, status=200)
+
+    else:
+        return redirect('/')

@@ -1,35 +1,7 @@
-function getCookie(name) {
-  let cookieValue = null;
-  if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          // Does this cookie string begin with the name we want?
-          if (cookie.substring(0, name.length + 1) === (name + '=')) {
-              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-              break;
-          }
-      }
-  }
-  return cookieValue;
-}
-
-const csrftoken = getCookie('csrftoken');
-
 async function loadmodel() {
   return await tf.loadLayersModel(modelURL);
 }
-function csrfSafeMethod(method) {
-  // these HTTP methods do not require CSRF protection
-  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-  beforeSend: function(xhr, settings) {
-      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-          xhr.setRequestHeader("X-CSRFToken", csrftoken);
-      }
-  }
-});
+
 
 let canvasWidth = 400;
 let canvasHeight = 400;
@@ -37,7 +9,6 @@ let _strokeW = 15;
 let drawing = [];
 let currentPath = [];
 let canDraw = false;
-let ajaxRequestAccept = false;
 //const model = loadmodel();
 let model;
 
@@ -48,7 +19,6 @@ async function preload() {
 }
 
 function setup() {
-  ajaxRequestAccept = false;
   $("#ocr-loading").hide();
   $('#predict-button').attr("disabled", true);
   setCanvasDims();
@@ -118,7 +88,6 @@ function resetCanvas() {
   drawing.splice(0, drawing.length);
   currentPath.splice(0, currentPath.length);
   clear();
-  ajaxRequestAccept = false;
   $('#predict-button').attr("disabled", true);
   background(0, 0, 0);
   $("#ocr-loading").hide();

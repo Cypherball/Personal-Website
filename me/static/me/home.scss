@@ -527,6 +527,10 @@ $contact_form_bg: linear-gradient( 45deg,  #4527a0 3.6%, #673ab7 90.4% );
         //background-image: linear-gradient( 180.8deg,  rgba(139,10,130,1) 6.9%, rgba(73,6,70,1) 73.2% );
         background-image:$contact_form_bg;
         form{
+            #contact-form-serverMessage{
+                display: none;
+                visibility: hidden;
+            }
             textarea{
                 resize: none;
             }

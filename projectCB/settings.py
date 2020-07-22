@@ -23,9 +23,10 @@ SECRET_KEY = '@z4l-=nxjd+br@pf%v1a@@-3o4a=qh3y4sj3(tj#&ur)y7h-hc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nitish-web.dev', 'project-cb.herokuapp.com', 'localhost']
+CSRF_COOKIE_SECURE = True
 #DATA_UPLOAD_MAX_MEMORY_SIZE = None
 #DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 
@@ -110,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -118,6 +119,22 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+#Email
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'n.r.devadiga2000@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'stmxtftcfptswfcg'
+
+EMAIL_SUBJECT_PREFIX = '[nitish-web.dev] '
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+EMAIL_USE_LOCALTIME = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/

@@ -20,11 +20,10 @@ html, body {
 
 *::-webkit-scrollbar-thumb {
   background-color: #000033;
-  border: 3px solid #fdfcfb;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #b224ef;
+  background: #220055;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
 }
@@ -49,7 +48,7 @@ html {
 }
 
 body {
-  background-color: #000033;
+  background-color: #e2d1c3;
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 

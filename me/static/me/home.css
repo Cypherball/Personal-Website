@@ -585,6 +585,11 @@ footer {
   background-image: linear-gradient(45deg, #4527a0 3.6%, #673ab7 90.4%);
 }
 
+#contact .contact-form-container form #contact-form-serverMessage {
+  display: none;
+  visibility: hidden;
+}
+
 #contact .contact-form-container form textarea {
   resize: none;
 }

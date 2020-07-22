@@ -271,25 +271,40 @@
                     Contact Me
                 </h2>
                 <div class="container text-white contact-form-container p-4 py-md-4 px-md-5 rounded anim-contact-animate">
-                    <form method="post" action="#">
+                    <form method="post" @submit="checkForm" id='contact-form' novalidate="true">
                     {% csrf_token %}
+                        {% verbatim %}
+                        <div class="alert" role="alert" id="contact-form-serverMessage">
+                            {{ serverMessage }}
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputName" class="col-form-label-lg">Name</label>
-                                <input type="text" class="form-control form-control-lg hvr-float" id="inputName" placeholder="Your Name">
+                                <input type="text" class="form-control form-control-lg hvr-float" id="inputName" placeholder="Your Name" name="inputName" v-model="clientName" maxlength="50">
+                                <div class="invalid-feedback">
+                                    {{ errors[0] }}
+                                </div>
                             </div>
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputEmail" class="col-form-label-lg">Email</label>
-                                <input type="email" class="form-control form-control-lg hvr-float" id="inputEmail" placeholder="Your Email">
+                                <input type="email" class="form-control form-control-lg hvr-float" id="inputEmail" placeholder="Your Email" name="inputEmail" v-model="clientEmail" maxlength="150">
+                                <div class="invalid-feedback">
+                                    {{ errors[1] }}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputMessage" class="col-form-label-lg">Message</label>
-                            <textarea class="form-control form-control-lg hvr-float" id="inputMessage" rows="5" placeholder="Message"></textarea>
+                            <textarea class="form-control form-control-lg hvr-float" id="inputMessage" rows="5" placeholder="Message (10-2500 Words)" name="inputMessage" v-model="message" minlength="10" maxlength="2500" data-gramm_editor="false"></textarea>
+                            <div class="invalid-feedback">
+                                    {{ errors[2] }}
+                            </div>
                         </div>
+                        
                         <div class="form-group mt-5 px-5">
-                            <button type="submit" class="btn btn-lg btn-block btn-contact hvr-float">Send</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-contact hvr-float" id="contact-form-submit"><span>Send</span></button>
                         </div>
+                        {% endverbatim %}
                     </form>
                 </div>
                 <div class="container text-white my-5 px-0" id="contact-info">
@@ -308,11 +323,22 @@
                         <div class="col-12 col-md-6 py-3 pt-md-0 pb-md-4 anim-contact-animate">
                             <div class="container-fluid px-0">
                                 <h4 class="mb-3"> 
-                                    <span class="fa fa-phone pr-2"></span>
+                                    <span class="fas fa-phone-alt pr-2"></span>
                                     Phone
                                 </h4>
                                 <a href="tel: +91{{ contact.phone }}" class="text-decoration-none text-white p-4 rounded hvr-float" >
                                     +91 {{ contact.phone }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 py-3 pt-md-0 pb-md-4 anim-contact-animate">
+                            <div class="container-fluid px-0">
+                                <h4 class="mb-3"> 
+                                    <span class="fas fa-map-marker-alt pr-2"></span>
+                                    Location
+                                </h4>
+                                <a href="https://maps.google.com/maps?q=Thane West, Maharashtra, India" target='_blank' class="text-decoration-none text-white p-4 rounded hvr-float" >
+                                    Thane West, Maharashtra, India
                                 </a>
                             </div>
                         </div>
