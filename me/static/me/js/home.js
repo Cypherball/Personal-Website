@@ -33,7 +33,7 @@ var contactForm = new Vue({
         clientName: '',
         clientEmail: '',
         message: '',
-        serverMessage: 'e'
+        serverMessage: ''
     },
     methods: {
         checkForm: function (e) {
@@ -59,7 +59,7 @@ var contactForm = new Vue({
             if (this.message.length == 0) {
                 this.errors[2] = ("Message required");
                 $('#inputMessage').addClass('is-invalid');
-            } else if (getWordCount(this.message)<1) {
+            } else if (getWordCount(this.message)<10) {
                 this.errors[2] = ("Message is too short. Must be greater than 10 words...");
                 $('#inputMessage').addClass('is-invalid');
             } else if (getWordCount(this.message)>2500) {
