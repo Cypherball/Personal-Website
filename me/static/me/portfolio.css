@@ -222,11 +222,14 @@ section {
 
 .portfolio-content-section img {
   max-width: 100%;
+  max-height: 500px;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
 }
 
 .portfolio-content-section .img-container {
+  background-color: #000;
+  min-height: 500px;
   margin: auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -234,6 +237,16 @@ section {
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   overflow: hidden;
+  border: 5px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .portfolio-content-section .img-container:hover img {
@@ -263,7 +276,41 @@ section {
 }
 
 #logos .row {
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+}
+
+#contact {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#4527a0), to(#9c27b0));
+  background-image: linear-gradient(to top, #4527a0 0%, #9c27b0 100%);
+}
+
+#contact .row {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#contact .section-title {
+  background-color: #051120;
+  color: #fff;
+}
+
+#contact .contact-form-container {
+  background-image: linear-gradient(45deg, #4527a0 3.6%, #673ab7 90.4%);
+}
+
+#contact .contact-form-container form #contact-form-serverMessage {
+  display: none;
+  visibility: hidden;
+}
+
+#contact .contact-form-container form textarea {
+  resize: none;
+}
+
+#contact #contact-info a {
+  width: 100%;
+  font-size: 1.2em;
+  background-image: linear-gradient(45deg, #4527a0 3.6%, #673ab7 90.4%);
 }
 
 @media (max-width: 768px) {
@@ -276,14 +323,17 @@ section {
   }
 }
 
-/*@media (min-width:1600px){
-    //Sections
-    .portfolio-content-section{
-        .content-wrapper{
-            padding: 5rem 10rem;
-        }
-    }
-}*/
+@media (max-width: 720px) {
+  .portfolio-content-section .img-container {
+    margin: auto;
+    min-height: auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border: 5px solid white;
+  }
+}
+
 #footer {
   background-color: #0B4F6C;
 }

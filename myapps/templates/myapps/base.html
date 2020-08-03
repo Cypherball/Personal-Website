@@ -44,6 +44,8 @@
         <link rel="stylesheet" href="{% static 'myapps/apps_list.css' %}">
     {% elif title == 'OCR' %}
         <link rel="stylesheet" href="{% static 'myapps/mlOCR.css' %}">
+    {% elif title == 'Sorting Visualization' %}
+        <link rel="stylesheet" href="{% static 'myapps/sorting_visualization.css' %}">
     {% endif %}
   </head>
   <body>
@@ -132,7 +134,9 @@
         <script>
           modelURL = "{% static 'myapps/model/ocr/model.json' %}"
         </script>
-        <script src="{% static 'myapps/js/sketch.js' %}"></script>    
+        <script src="{% static 'myapps/js/sketch.js' %}"></script>
+    {% elif title == "Sorting Visualization" %}
+        <script src="{% static 'myapps/js/sorting_visualization.js' %}"></script>
     {% endif %}
   </body>
 </html>

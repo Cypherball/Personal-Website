@@ -25,8 +25,20 @@ def home(request):
 
 
 def portfolio(request):
+    logos = list()
+    logos.append(PortfolioObject.objects.filter(category=PortfolioCategory.objects.filter(category_name='Logos').last()).all())
+    print(logos)
+    illustrations = list()
+    illustrations.append(PortfolioObject.objects.filter(category=PortfolioCategory.objects.filter(category_name='Illustrations')))
+    edits = list()
+    edits.append(PortfolioObject.objects.filter(category=PortfolioCategory.objects.filter(category_name='Edits')))
+
     data = {
-        'title':'Portfolio'
+        'title': 'Portfolio',
+        'contact': Contact.objects.last(),
+        'logos': logos,
+        'illustrations': illustrations,
+        'edits': edits
     }
     return render(request, 'me/portfolio.html', data)
 

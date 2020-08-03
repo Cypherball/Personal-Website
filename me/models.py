@@ -99,7 +99,28 @@ class ClientMail(models.Model):
         return self.name
 
 
+class PortfolioCategory(models.Model):
+    category_name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.category_name
+
+    class Meta:
+        verbose_name = "Portfolio Category"
+        verbose_name_plural = "Portfolio Categories"
 
 
+class PortfolioObject(models.Model):
+    category = models.ForeignKey(PortfolioCategory, on_delete = models.CASCADE)
+    name = models.CharField(max_length=255)
+    preview = models.URLField()
+    highRes = models.URLField()
+    desc = models.TextField(null=True, blank=True)
+    workCredits = models.TextField(null=True, blank=True)
+    toolsUsed = models.TextField(null=True, blank=True)
+    externLink = models.URLField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
 
 

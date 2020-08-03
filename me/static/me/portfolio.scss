@@ -214,17 +214,20 @@ section{
     }
     img{
         max-width: 100%;
-        //max-height: 500px;
-        
+        max-height: 500px;
         transition: 0.5s ease;
     }
     .img-container{
-        //background-color: #000;
+        background-color: #000;
+        min-height: 500px;
         margin: auto;
         width: fit-content;
         transition: 0.5s ease;
         overflow: hidden;
-        //border: 5px solid white;
+        border: 5px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         //border-radius: 10px;
     }
     .img-container:hover img{
@@ -249,12 +252,46 @@ section{
         color: #fff;
     }
     .row{
-        background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+        background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
     }
     background-color: white;
     color: #000;
 }
 
+//Contact Me
+$contact_form_bg: linear-gradient( 45deg,  #4527a0 3.6%, #673ab7 90.4% );
+
+#contact{
+    .row{
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    background-image: linear-gradient(to top, #4527a0 0%, #9c27b0 100%);
+    .section-title{
+        background-color: #051120;
+        color: #fff;
+    }
+    .contact-form-container{
+        background-image:$contact_form_bg;
+        form{
+            #contact-form-serverMessage{
+                display: none;
+                visibility: hidden;
+            }
+            textarea{
+                resize: none;
+            }
+        }
+    }
+    #contact-info{
+
+        a{
+            width: 100%;
+            font-size: 1.2em;
+            background-image:$contact_form_bg;
+        }
+    }
+}
 
 //Media Querries 
 @media (max-width:768px){
@@ -269,14 +306,18 @@ section{
     }
 }
 
-/*@media (min-width:1600px){
+@media (max-width:720px){
     //Sections
     .portfolio-content-section{
-        .content-wrapper{
-            padding: 5rem 10rem;
+        .img-container{
+            margin: auto;
+            min-height: auto;
+            width: fit-content;
+            border: 5px solid white;
+            //border-radius: 10px;
         }
     }
-}*/
+}
 
 
 

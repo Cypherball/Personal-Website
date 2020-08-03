@@ -51,31 +51,31 @@
                         Illustrations
                     </h2>
                     <div class="row px-3">
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6 col-xl-4">
                             <div class="img-container">
                                 <img src="{% static "me/assets/portfolioContent/illustrations/dope_skull.png" %}"/>
                             </div>
                             <p>The Soulful Reaper</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6 col-xl-4">
                             <div class="img-container">
                                 <img src="{% static "me/assets/portfolioContent/illustrations/crew_dragon.jpg" %}"/>
                             </div>
                             <p>SpaceX Crew Dragon</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6 col-xl-4">
                             <div class="img-container">
                                 <img src="{% static "me/assets/portfolioContent/illustrations/mineyemal.png" %}"/>
                             </div>
                             <p>minEyemal</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6 col-xl-4">
                             <div class="img-container">
                                 <img src="{% static "me/assets/portfolioContent/illustrations/cadillac.jpg" %}"/>
                             </div>
                             <p>1965 Blue Cadillac</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6 col-xl-4">
                             <div class="img-container">
                                 <img src="{% static "me/assets/portfolioContent/illustrations/redsaber.jpg" %}"/>
                             </div>
@@ -93,38 +93,163 @@
                         Logos
                     </h2>
                     <div class="row px-3">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="img-container">
-                                <img src="{% static "me/assets/portfolioContent/logos/enchanted _realm.png" %}"/>
+                        {% for logo in logos %}
+                            {% for l in logo %}
+                            <div class="col-12 col-md-6 col-xl-4">
+                                <div class="img-container">
+                                    <img src="{{ l.preview }}"/>
+                                </div>
+                                <p>{{ l.name }}</p>
                             </div>
-                            <p>The Enchanted Realm</p>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>  
+            </div>
+        </section>
+
+        <section id="logos" class="portfolio-content-section">
+            <div class="container-fluid svg-bg d-flex align-items-center justify-content-center content-wrapper">
+                <div class="container-fluid" >
+                    <h2 class="display-3 py-3 section-title">
+                        Photo Edits
+                    </h2>
+                    <div class="row px-3">
+                        <div class="col-12 col-md-6">
+                            <div class="img-container">
+                                <img src="{% static "me/assets/portfolioContent/edits/breaking_bad.png" %}"/>
+                            </div>
+                            <p>Breaking Bad Parody</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6">
                             <div class="img-container">
-                                <img src="{% static "me/assets/portfolioContent/logos/dapper_studio.jpg" %}"/>
+                                <img src="{% static "me/assets/portfolioContent/edits/bandra_worli.jpg" %}"/>
                             </div>
-                            <p>Dapper Studio</p>
+                            <p>Bandra Worli Fantasy</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6">
                             <div class="img-container">
-                                <img src="{% static "me/assets/portfolioContent/logos/aminova.png" %}"/>
+                                <img src="{% static "me/assets/portfolioContent/edits/burning_veteran.png" %}"/>
                             </div>
-                            <p>Aminova (College Fest)</p>
+                            <p>Burning Veteran</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6">
                             <div class="img-container">
-                                <img src="{% static "me/assets/portfolioContent/logos/gtavi.png" %}"/>
+                                <img src="{% static "me/assets/portfolioContent/edits/krazyb.jpeg" %}"/>
                             </div>
-                            <p>GTA VI (Fan Made)</p>
+                            <p>Fire</p>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4">
+                        <div class="col-12 col-md-6">
                             <div class="img-container">
-                                <img src="{% static "me/assets/portfolioContent/logos/rockstar_games.png" %}"/>
+                                <img src="{% static "me/assets/portfolioContent/edits/narcos_parody.png" %}"/>
                             </div>
-                            <p>Rockstar Games (Fan Made)</p>
+                            <p>Narcos Poster Parody</p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="img-container">
+                                <img src="{% static "me/assets/portfolioContent/edits/gtavi_concept.png" %}"/>
+                            </div>
+                            <p>GTA VI Concept Art</p>
+                        </div>
+                         <div class="col-12 col-md-6">
+                            <div class="img-container">
+                                <img src="{% static "me/assets/portfolioContent/edits/rdr3_concept.png" %}"/>
+                            </div>
+                            <p>RDR 3 Concept Art</p>
+                        </div>
+                         <div class="col-12 col-md-6">
+                            <div class="img-container">
+                                <img src="{% static "me/assets/portfolioContent/edits/bully2_concept.png" %}"/>
+                            </div>
+                            <p>Bully 2 Concept Art</p>
                         </div>
                     </div>
                 </div>  
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="container-fluid p-0 portfolio-content-section" id="contact">
+            <div class="container-fluid p-0 m-0 d-flex align-items-center justify-content-center">
+                <div class="container-fluid" >
+                    <h2 class="display-3 py-3 section-title">
+                        Contact Me
+                    </h2>
+                    <div class="container text-white contact-form-container p-4 py-md-4 px-md-5 mt-5 rounded anim-contact-animate">
+                        <form method="post" @submit="checkForm" id='contact-form' novalidate="true">
+                        {% csrf_token %}
+                            {% verbatim %}
+                            <div class="alert" role="alert" id="contact-form-serverMessage">
+                                {{ serverMessage }}
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="inputName" class="col-form-label-lg">Name</label>
+                                    <input type="text" class="form-control form-control-lg hvr-float" id="inputName" placeholder="Your Name" name="inputName" v-model="clientName" maxlength="50">
+                                    <div class="invalid-feedback">
+                                        {{ errors[0] }}
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="inputEmail" class="col-form-label-lg">Email</label>
+                                    <input type="email" class="form-control form-control-lg hvr-float" id="inputEmail" placeholder="Your Email" name="inputEmail" v-model="clientEmail" maxlength="150">
+                                    <div class="invalid-feedback">
+                                        {{ errors[1] }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputMessage" class="col-form-label-lg">Message</label>
+                                <textarea class="form-control form-control-lg hvr-float" id="inputMessage" rows="5" placeholder="Message (10-2500 Words)" name="inputMessage" v-model="message" minlength="10" maxlength="2500" data-gramm_editor="false"></textarea>
+                                <div class="invalid-feedback">
+                                        {{ errors[2] }}
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mt-5 px-5">
+                                <button type="submit" class="btn btn-lg btn-block btn-contact hvr-float" id="contact-form-submit"><span>Send</span></button>
+                            </div>
+                            {% endverbatim %}
+                        </form>
+                    </div>
+                    <div class="container-fluid text-white mt-5 px-0" id="contact-info">
+                        <div class="row m-0 px-4">
+                            <div class="col-12 col-md-6 py-3 pb-md-4">
+                                <div class="container-fluid px-0">
+                                    <h4 class="mb-3">
+                                        <span class="fa fa-envelope pr-2"></span>
+                                        Email
+                                    </h4>
+                                    <a href="mailto:{{ contact.email }}" class="text-decoration-none text-white hvr-float p-4 rounded">
+                                        {{ contact.email }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 py-3 pb-md-4">
+                                <div class="container-fluid px-0">
+                                    <h4 class="mb-3"> 
+                                        <span class="fas fa-phone-alt pr-2"></span>
+                                        Phone
+                                    </h4>
+                                    <a href="tel: +91{{ contact.phone }}" class="text-decoration-none text-white p-4 rounded hvr-float" >
+                                        +91 {{ contact.phone }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 py-3 pb-md-4">
+                                <div class="container-fluid px-0">
+                                    <h4 class="mb-3"> 
+                                        <span class="fas fa-map-marker-alt pr-2"></span>
+                                        Location
+                                    </h4>
+                                    <a href="https://maps.google.com/maps?q=Thane West, Maharashtra, India" target='_blank' class="text-decoration-none text-white p-4 rounded hvr-float" >
+                                        Thane West, Maharashtra, India
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
