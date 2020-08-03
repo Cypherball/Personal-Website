@@ -12,14 +12,14 @@
             {% verbatim  %}
             <div class="row mt-2 mb-5" id="array-container">
                 <div class="col-12 text-center my-3" id="number-array">
-                    <ul class="list-group list-group-horizontal justify-content-center">
-                        <li class="list-group-item" v-for="e in arr">{{ e }}</li>
+                    <ul class="list-group list-group-horizontal justify-content-center flex-wrap">
+                        <li class="list-group-item flex-fill" v-for="e in arr">{{ e }}</li>
                     </ul>
                 </div>
                 <div class="text-center col-12 input-parameters">
                     <p>
                         Length: 
-                        <input type='number' class="text-center" v-model="n" min="2" max="20">
+                        <input type='number' class="text-center" v-model="n" min="2" max="500">
                     </p>
                     <p>
                         Min Range: 
@@ -31,27 +31,27 @@
                     </p>
                 </div>
                 <p class="text-center col-12">
-                    <button v-on:click="genArray">Generate Random Array</button> 
+                    <button v-on:click="genArray" class="btn btn-primary">Generate Random Array</button> 
                 </p>
             </div>
             {% endverbatim  %}
         </div>
-        <div class="container d-flex flex-column align-items-center justify-content-center" id="array-visualization-container">
+        <div class="container" id="array-visualization-container">
             {% verbatim  %}
             <h3>Selection Sort</h3>
             <p>
                 Sort Speed: 
                 <input type='number' class="text-center" v-model="speed">
             </p>
-            <p><button v-on:click="startSort">Start Sorting</button></p>
-            <div class="row mt-2 mb-5" >
+            <p><button v-on:click="startSort" class="btn btn-success">Start Sorting</button></p>
+            <div class="row mt-2" >
                 <div class="col-12 text-center my-4" id="number-array-visualizer">
-                    <ul class="list-group list-group-horizontal justify-content-center arrVisualize">
-                        <li class="list-group-item" v-for="(e,idx) in visual_arr" v-bind:id="idx">{{ e }}</li>
+                    <ul class="list-group list-group-horizontal justify-content-center arrVisualize flex-wrap">
+                        <li class="list-group-item flex-fill" v-for="(e,idx) in visual_arr" v-bind:id="idx">{{ e }}</li>
                     </ul>
                 </div>
             </div>
-            <p><button v-on:click="stopSort">Stop Sorting</button></p>
+            <p><button v-on:click="stopSort" class="btn btn-danger">Stop Sorting</button></p>
             {% endverbatim  %}
         </div>
     </section>
