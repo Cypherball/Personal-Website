@@ -23,7 +23,7 @@ SECRET_KEY = '@z4l-=nxjd+br@pf%v1a@@-3o4a=qh3y4sj3(tj#&ur)y7h-hc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = (os.environ.get('DEBUG_VALUE_PROJECT_CB')=='True')
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['nitish-web.dev', 'project-cb.herokuapp.com', 'localhost']
 CSRF_COOKIE_SECURE = True

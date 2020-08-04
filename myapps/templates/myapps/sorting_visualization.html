@@ -16,19 +16,19 @@
                         <li class="list-group-item flex-fill" v-for="e in arr">{{ e }}</li>
                     </ul>
                 </div>
-                <div class="text-center col-12 input-parameters">
-                    <p>
+                <div class="text-center col-12 input-parameters d-flex justify-content-center flex-wrap">
+                    <div class="px-4 py-2">
                         Length: 
                         <input type='number' class="text-center" v-model="n" min="2" max="500">
-                    </p>
-                    <p>
+                    </div>
+                    <div class="px-4 py-2">
                         Min Range: 
                         <input type='number' class="text-center" v-model="minRange">
-                    </p>
-                    <p>
+                    </div>
+                    <div class="px-4 py-2">
                         Max Range: 
                         <input type='number' class="text-center" v-model="maxRange">
-                    </p>
+                    </div>
                 </div>
                 <p class="text-center col-12">
                     <button v-on:click="genArray" class="btn btn-primary">Generate Random Array</button> 
@@ -36,14 +36,31 @@
             </div>
             {% endverbatim  %}
         </div>
-        <div class="container" id="array-visualization-container">
+        <div class="container mb-5" id="array-visualization-container">
             {% verbatim  %}
-            <h3>Selection Sort</h3>
-            <p>
-                Sort Speed: 
-                <input type='number' class="text-center" v-model="speed">
-            </p>
-            <p><button v-on:click="startSort" class="btn btn-success">Start Sorting</button></p>
+            <h3>1. Selection Sort</h3>
+            <div class="container-fluid d-flex justify-content-center flex-wrap">
+                <div class="px-4 py-2">
+                    Sort Speed: 
+                    <input type='number' class="text-center" v-model="speed" min="0" max="2000">
+                </div>
+                <div class="px-4 py-2">
+                    Order: 
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="orderDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ascending</button>
+                    <div class="dropdown-menu" aria-labelledby="orderDropdown">
+                        <a class="dropdown-item" v-on:click="setAscending">Ascending</a>
+                        <a class="dropdown-item" v-on:click="setDescending">Descending</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid d-flex">
+                <div class="px-4 py-2">
+                    <button v-on:click="startSort" class="btn btn-success" id='startButton'>Start Sorting</button>
+                </div>
+                <div class="px-4 py-2">
+                    <button v-on:click="stopSort" class="btn btn-danger" id='stopButton' disabled>Stop Sorting</button>
+                </div>
+            </div>
             <div class="row mt-2" >
                 <div class="col-12 text-center my-4" id="number-array-visualizer">
                     <ul class="list-group list-group-horizontal justify-content-center arrVisualize flex-wrap">
@@ -51,7 +68,12 @@
                     </ul>
                 </div>
             </div>
-            <p><button v-on:click="stopSort" class="btn btn-danger">Stop Sorting</button></p>
+            <p class="text-center"><strong>Complexity:</strong>
+            <br>Worst Case Time: <em>O(n^2)<em>
+            <br>Best Case Time: <em>O(n^2)<em>
+            <br>Average Case Time: <em>O(n^2)<em>
+            <br>Worst Case Space: <em>O(1)<em>
+            </p>
             {% endverbatim  %}
         </div>
     </section>

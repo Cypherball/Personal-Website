@@ -5,7 +5,6 @@ var arrVisualize = new Vue({
         speed: 100,
         maxSpeed: 2000,
         reset: false,
-        ascending: true,
         inactiveColor: '#000',
         inactiveBGColor: '#fff',
         discardedColor: '#0f0f0f',
@@ -30,10 +29,7 @@ var arrVisualize = new Vue({
                         this.changeElementStyle(j-1, '#FBEEF8', this.inactiveColor);
                     }
                     this.changeElementStyle(j, this.secondarySelectedBGColor, '#fff');
-
-                    if ((this.ascending && this.visual_arr[i] > this.visual_arr[j])
-                    || (!this.ascending && this.visual_arr[i] < this.visual_arr[j])
-                    && !this.reset) {
+                    if ((this.visual_arr[i] > this.visual_arr[j]) && !this.reset) {
                         if (this.speed > 0) {
                             if (this.speed > 500)
                                 await this.sleep(500);
@@ -63,16 +59,13 @@ var arrVisualize = new Vue({
                 this.changeArrayStyle(this.sortedBGColor, this.sortedColor);
             else
                 this.changeArrayStyle(this.inactiveBGColor, this.inactiveColor);
-            $("#stopButton").attr("disabled", true);
         },
         startSort: async function () {
-            $("#stopButton").attr("disabled", false);
             this.reset = false; 
             this.changeArrayStyle(this.inactiveBGColor, this.inactiveColor);
             this.selectionSort();
         },
         stopSort: function () {
-            $("#stopButton").attr("disabled", true);
             this.reset = true;
             this.changeArrayStyle(this.inactiveBGColor, this.inactiveColor);
         },
@@ -95,20 +88,6 @@ var arrVisualize = new Vue({
                     if (listitem.css('background-color') != this.discardedBGColor)
                         listitem.css({ 'background-color': bg_color, 'color': color });
                 });
-        },
-        setAscending: function () {
-            if ($('#orderDropdown').html() !== 'Ascending') {
-                this.stopSort();
-                this.ascending = true;
-                $('#orderDropdown').html('Ascending');
-            }
-        },
-        setDescending: function () {
-            if ($('#orderDropdown').html() != 'Descending') {
-                this.stopSort();
-                this.ascending = false;
-                $('#orderDropdown').html('Descending');
-            }
         }
     }
 });
